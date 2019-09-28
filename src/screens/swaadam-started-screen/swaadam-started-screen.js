@@ -7,7 +7,7 @@ class SwaadamStartedScreen extends Component {
     render() {
         return (
             <View>
-                <Text style={Styles.textColor}>Swaadam started check</Text>
+                <Text style={Styles.textColor}>Swaadam started check font check Now</Text>
             </View>
         );
     }

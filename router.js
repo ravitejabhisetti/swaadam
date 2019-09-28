@@ -11,7 +11,7 @@ export const createRootNavigator = (signedIn = false) => {
             Home: SwaadamHome
         },
         {
-            initialRouteName: signedIn ? Constants.Swaadam_Started_screen : Constants.Swaadam_Home_Screen
+            initialRouteName: !signedIn ? Constants.Swaadam_Started_screen : Constants.Swaadam_Home_Screen
         }
     )
 }
