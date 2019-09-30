@@ -4,10 +4,11 @@ import {
     SwaadamExploreScreen, SwaadamCartScreen,
     SwaadamScheduleScreen, SwaadamProfileScreen
 } from './swaadam-screens';
+import { ProfileStackNavigator } from './swaadam-profile-router';
 
-export const SwaadamHome = createBottomTabNavigator({
+export const SwaadamHome = (signedIn = false) =>  createBottomTabNavigator({
     Explore: SwaadamExploreScreen,
     Cart: SwaadamCartScreen,
     Schedule: SwaadamScheduleScreen,
-    Profile: SwaadamProfileScreen
+    Profile: !signedIn ? ProfileStackNavigator : SwaadamProfileScreen
 });

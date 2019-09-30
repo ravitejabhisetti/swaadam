@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Entypo';
 
 const SwaadamStartedButton = (props) => {
     return (
-        <TouchableOpacity style={Styles.getStartedSection}>
+        <TouchableOpacity onPress={props.onButtonClick} style={Styles.getStartedSection}>
             <View style={Styles.buttonSection}>
                 <View>
                     <Text style={Styles.startedText}>Get Started</Text>

@@ -8,7 +8,7 @@ export const createRootNavigator = (signedIn = false) => {
     return createSwitchNavigator(
         {
             Started: SwaadamStartedScreen,
-            Home: SwaadamHome
+            Home: SwaadamHome(signedIn)
         },
         {
             initialRouteName: !signedIn ? Constants.Swaadam_Started_screen : Constants.Swaadam_Home_Screen

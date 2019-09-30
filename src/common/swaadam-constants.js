@@ -15,3 +15,6 @@ export const Justify = 'justify';
 export const Space_Between = 'space-between';
 export const Started_Button_yellow = '#FF9E42';
 export const White = 'white';
+export const Home_Screen = 'Home';
+export const User_Sign_In_Screen = 'userSignInScreen';
+export const None = 'none';
