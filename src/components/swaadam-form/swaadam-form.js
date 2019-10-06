@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { SwaadamInput } from '../swaadam-common-components';
 import * as Constants from '../../common/swaadam-constants';
+import { Styles } from './swaadam-form-style';
 
 class SwaadamForm extends Component {
     constructor(props) {
@@ -34,8 +35,8 @@ class SwaadamForm extends Component {
             }
         }));
         return (
-            <View>
-                <Text>Swaadam form component</Text>
+            <View style={Styles.formSection}>
+                <Text style={Styles.formTitle}>{props.formNameToDisplay}</Text>
                 {formItems}
             </View>
         )
@@ -45,13 +46,15 @@ class SwaadamForm extends Component {
 SwaadamForm.propTypes = {
     form: PropTypes.string,
     formButtonTitle: PropTypes.string,
-    formItems: PropTypes.array
+    formItems: PropTypes.array,
+    formNameToDisplay: PropTypes.string
 }
 
 SwaadamForm.defaultProps = {
     form: '',
     formButtonTitle: '',
-    formItems: []
+    formItems: [],
+    formNameToDisplay: ''
 }
 
 export default reduxForm()(SwaadamForm);

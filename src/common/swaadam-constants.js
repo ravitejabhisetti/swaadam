@@ -22,6 +22,7 @@ export const Absolute = 'absolute';
 export const Swaadam_SignIn_Form_Name = 'SwaadamSignInForm';
 export const Swaadam_SignIn_Submit_Button = 'REQUEST OTP';
 export const Form_Item_Type_Text_Box = 'textBox';
+export const Sign_In_Form = 'Sign In';
 export const Swaadam_SignIn_Form = [{
     label: 'Mobile Number',
     value: '',

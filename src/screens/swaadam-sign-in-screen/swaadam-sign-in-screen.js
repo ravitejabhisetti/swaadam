@@ -11,6 +11,7 @@ const SwaadamSignInScreen = (props) => {
             <ScrollView>
                 <View style={Styles.signInFormSection}>
                     <SwaadamForm
+                        formNameToDisplay={Constants.Sign_In_Form}
                         form={Constants.Swaadam_SignIn_Form_Name}
                         formItems={Constants.Swaadam_SignIn_Form}
                         formButtonTitle={Constants.Swaadam_SignIn_Submit_Button}
