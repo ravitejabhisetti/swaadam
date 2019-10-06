@@ -18,3 +18,12 @@ export const White = 'white';
 export const Home_Screen = 'Home';
 export const User_Sign_In_Screen = 'userSignInScreen';
 export const None = 'none';
+export const Absolute = 'absolute';
+export const Swaadam_SignIn_Form_Name = 'SwaadamSignInForm';
+export const Swaadam_SignIn_Submit_Button = 'REQUEST OTP';
+export const Swaadam_SignIn_Form = {
+    label: 'Mobile Number',
+    value: '',
+    fieldName: 'mobileNumber',
+    placeholder: '9999999999'
+}

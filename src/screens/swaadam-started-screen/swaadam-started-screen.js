@@ -11,7 +11,7 @@ class SwaadamStartedScreen extends Component {
         super(props);
     }
     handleGetStarted() {
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate(Constants.Swaadam_Home_Screen);
     }
     render() {
         return (
