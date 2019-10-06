@@ -7,7 +7,7 @@
  */
 
 import React, { Component } from 'react';
-import { View, Text, AsyncStorage } from 'react-native';
+import { View, Text, AsyncStorage, SafeAreaView } from 'react-native';
 import { createRootNavigator } from './router';
 import * as Constants from './src/common/swaadam-constants';
 import { createAppContainer } from 'react-navigation';
@@ -37,7 +37,9 @@ class App extends Component {
     const RenderApp = createRootNavigator(isSignedIn);
     const RenderAppContainer = createAppContainer(RenderApp);
     return (
+      <SafeAreaView style={{ flex: 1 }}>
         <RenderAppContainer />
+      </SafeAreaView>
     )
   }
 }

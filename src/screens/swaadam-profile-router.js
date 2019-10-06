@@ -13,3 +13,14 @@ export const ProfileStackNavigator = createStackNavigator({
         headerMode: Constants.None
     }
 )
+
+ProfileStackNavigator.navigationOptions = ({ navigation }) => {
+    let tabBarVisible = true;
+    let routeName = navigation.state.routes[navigation.state.index].routeName
+    if ( routeName == 'userSignInScreen' ) {
+        tabBarVisible = false
+    }
+    return {
+        tabBarVisible
+    }
+}

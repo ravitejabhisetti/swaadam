@@ -13,7 +13,7 @@ class SwaadamForm extends Component {
             formEntries: []
         }
     }
-    componentWillMount() {
+    componentDidMount() {
         this.setState((state) => {
             return {
                 ...state,

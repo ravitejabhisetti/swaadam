@@ -5,8 +5,9 @@ import {
     SwaadamScheduleScreen, SwaadamProfileScreen
 } from './swaadam-screens';
 import { ProfileStackNavigator } from './swaadam-profile-router';
+import * as Constants from '../common/swaadam-constants';
 
-export const SwaadamHome = (signedIn = false) =>  createBottomTabNavigator({
+export const SwaadamHome = (signedIn = false) => createBottomTabNavigator({
     Explore: SwaadamExploreScreen,
     Cart: SwaadamCartScreen,
     Schedule: SwaadamScheduleScreen,

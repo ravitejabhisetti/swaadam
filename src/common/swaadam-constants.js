@@ -3,6 +3,7 @@ export const Is_App_Signed_In = 'isAppSignedIn';
 export const Swaadam_Home_Screen = 'Home';
 export const Montserrat_Regular = 'Montserrat-Regular';
 export const Montserrat_Bold = 'Montserrat-Bold';
+export const Montserrat_Light = 'Montserrat-Light';
 export const Row = 'row';
 export const Center = 'center';
 export const Column = 'column';
@@ -23,6 +24,8 @@ export const Swaadam_SignIn_Form_Name = 'SwaadamSignInForm';
 export const Swaadam_SignIn_Submit_Button = 'REQUEST OTP';
 export const Form_Item_Type_Text_Box = 'textBox';
 export const Sign_In_Form = 'Sign In';
+export const Transparent = 'transparent';
+export const Swaadam_Profile_Screen = 'Profile';
 export const Swaadam_SignIn_Form = [{
     label: 'Mobile Number',
     value: '',

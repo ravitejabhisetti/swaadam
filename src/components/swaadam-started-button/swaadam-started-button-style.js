@@ -5,14 +5,13 @@ const Styles = StyleSheet.create({
     getStartedSection: {
         backgroundColor: Constants.Started_Button_yellow,
         borderRadius: 8,
-        paddingTop: 25,
-        paddingBottom: 25,
+        paddingTop: 18,
+        paddingBottom: 18,
         paddingLeft: 20,
-        paddingRight: 20,
+        paddingRight: 10,
         marginTop: 10
     },
     buttonSection: {
-        flex: 1,
         flexDirection: Constants.Row,
         justifyContent: Constants.Space_Between,
         alignItems: Constants.Center,
