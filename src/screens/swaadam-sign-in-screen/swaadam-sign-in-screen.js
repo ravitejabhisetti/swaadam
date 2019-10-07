@@ -4,15 +4,17 @@ import { SwaadamForm, SwaadamNavigationHeader } from '../../components/swaadam-c
 import { Styles } from './swaadam-sign-in-screen-style';
 import * as Constants from '../../common/swaadam-constants';
 
-// const SwaadamSignInScreen = (props) => {
 class SwaadamSignInScreen extends Component {
-    static navigationOptions = {
-        tabBarVisible: false
-    };
+    constructor(props) {
+        super(props);
+    }
+    handleBackAction = () => {
+        this.props.navigation.navigate(Constants.Explore_Screen);
+    }
     render() {
         return (
             <View style={Styles.signInSection}>
-                <SwaadamNavigationHeader />
+                <SwaadamNavigationHeader handleBackNavigation={() => this.handleBackAction()} />
                 <ScrollView>
                     <View style={Styles.signInFormSection}>
                         <SwaadamForm

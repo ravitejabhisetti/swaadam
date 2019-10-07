@@ -3,12 +3,12 @@ import * as Constants from '../../common/swaadam-constants';
 
 const Styles = StyleSheet.create({
     labelText: {
-        fontFamily: Constants.Montserrat_Light,
-        fontSize: 16,
+        fontFamily: Constants.Montserrat_Regular,
+        fontSize: 18,
         color: Constants.Grey
     },
     textBoxSection: {
-        marginTop: 2
+        marginTop: 6
     },
     textInput: {
         borderBottomWidth: 0.6,

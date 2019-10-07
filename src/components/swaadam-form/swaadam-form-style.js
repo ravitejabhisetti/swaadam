@@ -6,9 +6,9 @@ const Styles = StyleSheet.create({
         paddingLeft: 20
     },
     formTitle: {
-        fontSize: 25,
+        fontSize: 30,
         fontFamily: Constants.Montserrat_Bold,
-        marginBottom: 20
+        marginBottom: 30
     }
 });
 

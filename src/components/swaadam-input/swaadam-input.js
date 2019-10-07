@@ -18,9 +18,11 @@ class SwaadamInput extends Component {
                 <Text style={Styles.labelText}>{props.label}</Text>
                 <View style={Styles.textBoxSection}>
                     <TextInput
+                        keyboardType={props.keyboardType}
                         underlineColorAndroid={Constants.Transparent}
                         style={Styles.textInput}
                         placeholder={props.placeholder}
+                        maxLength={props.maxLength}
                     />
                 </View>
             </View>
@@ -30,12 +32,16 @@ class SwaadamInput extends Component {
 
 SwaadamInput.propTypes = {
     label: PropTypes.string,
-    placeholder: PropTypes.string
+    placeholder: PropTypes.string,
+    keyboardType: PropTypes.string,
+    maxLength: PropTypes.string
 }
 
 SwaadamInput.defaultProps = {
     label: '',
-    placeholder: ''
+    placeholder: '',
+    keyboardType: '',
+    maxLength: ''
 }
 
 export default SwaadamInput;

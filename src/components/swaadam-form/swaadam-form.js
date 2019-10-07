@@ -31,6 +31,8 @@ class SwaadamForm extends Component {
                     name={item.fieldName}
                     label={item.label}
                     placeholder={item.placeholder}
+                    keyboardType={item.keyboardType}
+                    maxLength={item.maxLength}
                 />
             }
         }));

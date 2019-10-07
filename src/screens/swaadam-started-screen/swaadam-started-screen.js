@@ -13,6 +13,9 @@ class SwaadamStartedScreen extends Component {
     handleGetStarted() {
         this.props.navigation.navigate(Constants.Swaadam_Home_Screen);
     }
+    state = {
+        displayCheck: false
+    }
     render() {
         return (
             <View style={Styles.startedScreenSection}>

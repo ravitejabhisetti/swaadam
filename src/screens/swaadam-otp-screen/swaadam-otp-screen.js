@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Component } from 'react-native';
+import { View, Text, Component } from 'react-native';
 
 const SwaadamOtpScreen = (props) => {
     return (

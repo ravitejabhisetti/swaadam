@@ -6,7 +6,6 @@ const Styles = StyleSheet.create({
         marginTop: 20
     },
     navigationHeaderRow: {
-        flex: 1,
         flexDirection: Constants.Row,
         justifyContent: Constants.Center
     },

@@ -18,6 +18,9 @@ export const Started_Button_yellow = '#FF9E42';
 export const White = 'white';
 export const Home_Screen = 'Home';
 export const User_Sign_In_Screen = 'userSignInScreen';
+export const User_OTP_Screen = 'userOtpScreen';
+export const User_Update_Details_Screen = 'userUpdateDetailsScreen';
+export const Explore_Screen = 'Explore';
 export const None = 'none';
 export const Absolute = 'absolute';
 export const Swaadam_SignIn_Form_Name = 'SwaadamSignInForm';
@@ -31,5 +34,7 @@ export const Swaadam_SignIn_Form = [{
     value: '',
     fieldName: 'mobileNumber',
     placeholder: '9999999999',
-    type: 'textBox'
+    type: 'textBox',
+    keyboardType: 'number-pad',
+    maxLength: 10
 }]
