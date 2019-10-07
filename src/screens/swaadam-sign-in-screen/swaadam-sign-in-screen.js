@@ -24,6 +24,9 @@ class SwaadamSignInScreen extends Component {
                             formButtonTitle={Constants.Swaadam_SignIn_Submit_Button}
                         />
                     </View>
+                    <View style={Styles.signInTextSection}>
+                        <Text style={Styles.signInText}>By clicking Sign up you agree to the following Terms and Conditions without reservation</Text>
+                    </View>
                 </ScrollView>
             </View>
         )

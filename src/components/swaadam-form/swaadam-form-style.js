@@ -9,6 +9,9 @@ const Styles = StyleSheet.create({
         fontSize: 30,
         fontFamily: Constants.Montserrat_Bold,
         marginBottom: 30
+    },
+    formSubmitSection: {
+        marginTop: 55
     }
 });
 

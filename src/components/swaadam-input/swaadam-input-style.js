@@ -3,7 +3,7 @@ import * as Constants from '../../common/swaadam-constants';
 
 const Styles = StyleSheet.create({
     labelText: {
-        fontFamily: Constants.Montserrat_Regular,
+        fontFamily: Constants.Montserrat_Medium,
         fontSize: 18,
         color: Constants.Grey
     },
@@ -13,8 +13,9 @@ const Styles = StyleSheet.create({
     textInput: {
         borderBottomWidth: 0.6,
         fontFamily: Constants.Montserrat_Regular,
-        fontSize: 20,
-        color: Constants.Black
+        fontSize: 16,
+        color: Constants.Black,
+        borderBottomColor: "#BDBDBD"
     }
 });
 

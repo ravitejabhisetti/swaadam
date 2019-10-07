@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import * as Constants from '../../common/swaadam-constants';
 
 const Styles = StyleSheet.create({
     signInSection: {
@@ -7,6 +8,16 @@ const Styles = StyleSheet.create({
     },
     signInFormSection: {
         marginTop: 100
+    },
+    signInTextSection: {
+        marginTop: 75,
+        paddingLeft: 20
+    },
+    signInText: {
+        fontFamily: Constants.Montserrat_Regular,
+        color: Constants.Grey,
+        fontSize: 16,
+        lineHeight: 26
     }
 });
 

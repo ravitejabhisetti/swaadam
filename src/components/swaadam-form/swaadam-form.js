@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
-import { SwaadamInput } from '../swaadam-common-components';
+import { SwaadamInput, SwaadamFormButton } from '../swaadam-common-components';
 import * as Constants from '../../common/swaadam-constants';
 import { Styles } from './swaadam-form-style';
 
@@ -40,6 +40,9 @@ class SwaadamForm extends Component {
             <View style={Styles.formSection}>
                 <Text style={Styles.formTitle}>{props.formNameToDisplay}</Text>
                 {formItems}
+                <View style={Styles.formSubmitSection}>
+                    <SwaadamFormButton formButtonTitle={props.formButtonTitle} />
+                </View>
             </View>
         )
     }
