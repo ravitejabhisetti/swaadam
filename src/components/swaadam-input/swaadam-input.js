@@ -15,8 +15,10 @@ class SwaadamInput extends Component {
         let { ...props } = this.props;
         return (
             <View>
-                <Text style={Styles.labelText}>{props.label}</Text>
-                <View style={Styles.textBoxSection}>
+                <View style={Styles.labelTextSection}>
+                    <Text style={Styles.labelText}>{props.label}</Text>
+                </View>
+                <View>
                     <TextInput
                         keyboardType={props.keyboardType}
                         underlineColorAndroid={Constants.Transparent}
