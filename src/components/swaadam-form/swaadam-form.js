@@ -10,7 +10,8 @@ class SwaadamForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            formEntries: []
+            formEntries: [],
+            displayActivityIndicator: false
         }
     }
     componentDidMount() {
@@ -20,6 +21,15 @@ class SwaadamForm extends Component {
                 formEntries: this.props.formItems
             }
         })
+    }
+    handleFormSubmit() {
+        this.setState((state) => {
+            return {
+                ...state,
+                displayActivityIndicator: true
+            }
+        })
+        // this.props.handleFormSubmit();
     }
     render() {
         let { handleSubmit, ...props } = this.props;
@@ -41,7 +51,10 @@ class SwaadamForm extends Component {
                 <Text style={Styles.formTitle}>{props.formNameToDisplay}</Text>
                 {formItems}
                 <View style={Styles.formSubmitSection}>
-                    <SwaadamFormButton formButtonTitle={props.formButtonTitle} />
+                    <SwaadamFormButton
+                        formSubmit={() => this.handleFormSubmit()}
+                        displayActivityIndicator={this.state.displayActivityIndicator}
+                        formButtonTitle={props.formButtonTitle} />
                 </View>
             </View>
         )

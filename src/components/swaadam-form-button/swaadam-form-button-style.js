@@ -9,7 +9,8 @@ const Styles = StyleSheet.create({
         justifyContent: Constants.Center,
         alignItems: Constants.Center,
         paddingTop: 16,
-        paddingBottom: 16
+        paddingBottom: 16,
+        height: 48
     },
     formButtonText: {
         color: Constants.Black,
