@@ -16,7 +16,10 @@ const SwaadamFormButton = (props) => {
         )
     }
     return (
-        <TouchableHighlight onPress={props.formSubmit} underlayColor={Constants.Form_Button_Underlay_Color} style={Styles.formButtonSection}>
+        <TouchableHighlight
+            onPress={props.formSubmit}
+            underlayColor={Constants.Form_Button_Underlay_Color}
+            style={Styles.formButtonSection}>
             {formButtonContent}
         </TouchableHighlight>
     )

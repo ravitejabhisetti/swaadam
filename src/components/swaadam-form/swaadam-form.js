@@ -29,7 +29,7 @@ class SwaadamForm extends Component {
                 displayActivityIndicator: true
             }
         })
-        // this.props.handleFormSubmit();
+        this.props.handleFormSubmit();
     }
     render() {
         let { handleSubmit, ...props } = this.props;
@@ -65,7 +65,8 @@ SwaadamForm.propTypes = {
     form: PropTypes.string,
     formButtonTitle: PropTypes.string,
     formItems: PropTypes.array,
-    formNameToDisplay: PropTypes.string
+    formNameToDisplay: PropTypes.string,
+    handleFormSubmit: PropTypes.func
 }
 
 SwaadamForm.defaultProps = {
