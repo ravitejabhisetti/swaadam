@@ -10,8 +10,7 @@ class SwaadamForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            formEntries: [],
-            displayActivityIndicator: false
+            formEntries: []
         }
     }
     componentDidMount() {
@@ -23,12 +22,6 @@ class SwaadamForm extends Component {
         })
     }
     handleFormSubmit() {
-        this.setState((state) => {
-            return {
-                ...state,
-                displayActivityIndicator: true
-            }
-        })
         this.props.handleFormSubmit(this.props.formItems);
     }
     updateFieldValue(key, value, fieldName) {
@@ -57,7 +50,7 @@ class SwaadamForm extends Component {
                 <View style={Styles.formSubmitSection}>
                     <SwaadamFormButton
                         formSubmit={() => this.handleFormSubmit()}
-                        displayActivityIndicator={this.state.displayActivityIndicator}
+                        displayActivityIndicator={props.displayActivityIndicator}
                         formButtonTitle={props.formButtonTitle} />
                 </View>
             </View>

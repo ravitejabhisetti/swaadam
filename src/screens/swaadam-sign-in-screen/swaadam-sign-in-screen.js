@@ -3,23 +3,40 @@ import { View, Text, ScrollView, Keyboard } from 'react-native';
 import { SwaadamForm, SwaadamNavigationHeader, SwaadamAlertModal } from '../../components/swaadam-common-components';
 import { Styles } from './swaadam-sign-in-screen-style';
 import * as Constants from '../../common/swaadam-constants';
+import validateMobileNumber from '../../common/validations';
 
 class SwaadamSignInScreen extends Component {
     constructor(props) {
         super(props);
     }
     state = {
-        displayAlertModal: false
+        displayAlertModal: false,
+        displayActivityIndicator: false
     }
     handleBackAction = () => {
         this.props.navigation.navigate(Constants.Explore_Screen);
     }
     submitSignInForm = (formItems) => {
         // this.handleAlertModal(true);
+        this.handleButtonSubmit(true);
         Keyboard.dismiss();
+        if (validateMobileNumber(formItems[0].value)) {
+            this.handleButtonSubmit(false);
+        } else {
+            this.handleButtonSubmit(false);
+            this.handleAlertModal(true);
+        }
     }
     hideAlertModal = () => {
         this.handleAlertModal(false);
+    }
+    handleButtonSubmit = (display) => {
+        this.setState((state) => {
+            return {
+                ...state,
+                displayActivityIndicator: display
+            }
+        })
     }
     handleAlertModal(display) {
         this.setState((state) => {
@@ -33,7 +50,9 @@ class SwaadamSignInScreen extends Component {
         let swaadamAlertModal = null;
         if (this.state.displayAlertModal) {
             swaadamAlertModal = (
-                <SwaadamAlertModal hideAlertModal={() => this.hideAlertModal()} displayAlertModal={this.state.displayAlertModal} />
+                <SwaadamAlertModal
+                    hideAlertModal={() => this.hideAlertModal()}
+                    displayAlertModal={this.state.displayAlertModal} />
             )
         }
         return (
@@ -48,6 +67,7 @@ class SwaadamSignInScreen extends Component {
                             form={Constants.Swaadam_SignIn_Form_Name}
                             formItems={Constants.Swaadam_SignIn_Form}
                             formButtonTitle={Constants.Swaadam_SignIn_Submit_Button}
+                            displayActivityIndicator={this.state.displayActivityIndicator}
                         />
                     </View>
                     <View style={Styles.signInTextSection}>
