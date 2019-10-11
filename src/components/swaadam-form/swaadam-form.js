@@ -29,7 +29,10 @@ class SwaadamForm extends Component {
                 displayActivityIndicator: true
             }
         })
-        this.props.handleFormSubmit();
+        this.props.handleFormSubmit(this.props.formItems);
+    }
+    updateFieldValue(key, value, fieldName) {
+        this.props.formItems[key].value = value;
     }
     render() {
         let { handleSubmit, ...props } = this.props;
@@ -43,6 +46,7 @@ class SwaadamForm extends Component {
                     placeholder={item.placeholder}
                     keyboardType={item.keyboardType}
                     maxLength={item.maxLength}
+                    onChange={(value) => this.updateFieldValue(key, value, item.fieldName)}
                 />
             }
         }));

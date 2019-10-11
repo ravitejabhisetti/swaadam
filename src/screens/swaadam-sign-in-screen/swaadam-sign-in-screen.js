@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, Keyboard } from 'react-native';
 import { SwaadamForm, SwaadamNavigationHeader, SwaadamAlertModal } from '../../components/swaadam-common-components';
 import { Styles } from './swaadam-sign-in-screen-style';
 import * as Constants from '../../common/swaadam-constants';
@@ -14,21 +14,20 @@ class SwaadamSignInScreen extends Component {
     handleBackAction = () => {
         this.props.navigation.navigate(Constants.Explore_Screen);
     }
-    submitSignInForm = () => {
-        this.setState((state) => {
-            return {
-                ...state,
-                displayAlertModal: true
-            }
-        })
+    submitSignInForm = (formItems) => {
+        // this.handleAlertModal(true);
+        Keyboard.dismiss();
     }
     hideAlertModal = () => {
+        this.handleAlertModal(false);
+    }
+    handleAlertModal(display) {
         this.setState((state) => {
             return {
                 ...state,
-                displayAlertModal: false
+                displayAlertModal: display
             }
-        })
+        });
     }
     render() {
         let swaadamAlertModal = null;
@@ -41,10 +40,10 @@ class SwaadamSignInScreen extends Component {
             <View style={Styles.signInSection}>
                 {swaadamAlertModal}
                 <SwaadamNavigationHeader handleBackNavigation={() => this.handleBackAction()} />
-                <ScrollView>
+                <ScrollView keyboardShouldPersistTaps='handled'>
                     <View style={Styles.signInFormSection}>
                         <SwaadamForm
-                            handleFormSubmit={() => this.submitSignInForm()}
+                            handleFormSubmit={(values) => this.submitSignInForm(values)}
                             formNameToDisplay={Constants.Sign_In_Form}
                             form={Constants.Swaadam_SignIn_Form_Name}
                             formItems={Constants.Swaadam_SignIn_Form}

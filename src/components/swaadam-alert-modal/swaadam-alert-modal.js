@@ -22,7 +22,6 @@ class SwaadamAlertModal extends Component {
                 >
                     <TouchableHighlight onPress={this.handleBackPress} activeOpacity={1} style={Styles.alertContainer}>
                         <View style={Styles.alertContent}>
-                            {onC}
                             <Text>check new modal</Text>
                         </View>
                     </TouchableHighlight>

@@ -11,6 +11,9 @@ class SwaadamInput extends Component {
             inputText: ''
         }
     }
+    handleChangeText = (textValue) => {
+        this.props.input.onChange(textValue);
+    }
     render() {
         let { ...props } = this.props;
         return (
@@ -25,6 +28,8 @@ class SwaadamInput extends Component {
                         style={Styles.textInput}
                         placeholder={props.placeholder}
                         maxLength={props.maxLength}
+                        onChangeText={(value) => this.handleChangeText(value)}
+                        keyboardShouldPersistTaps="never"
                     />
                 </View>
             </View>
