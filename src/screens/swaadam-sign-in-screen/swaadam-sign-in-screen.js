@@ -51,6 +51,8 @@ class SwaadamSignInScreen extends Component {
         if (this.state.displayAlertModal) {
             swaadamAlertModal = (
                 <SwaadamAlertModal
+                    displayButtonSection={false}
+                    alertText={Constants.Mobile_Number_Error}
                     hideAlertModal={() => this.hideAlertModal()}
                     displayAlertModal={this.state.displayAlertModal} />
             )

@@ -50,6 +50,7 @@ class SwaadamForm extends Component {
                 <View style={Styles.formSubmitSection}>
                     <SwaadamFormButton
                         formSubmit={() => this.handleFormSubmit()}
+                        underlayColor={Constants.Form_Button_Underlay_Color}
                         displayActivityIndicator={props.displayActivityIndicator}
                         formButtonTitle={props.formButtonTitle} />
                 </View>
