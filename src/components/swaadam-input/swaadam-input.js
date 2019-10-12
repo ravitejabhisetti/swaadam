@@ -41,7 +41,7 @@ SwaadamInput.propTypes = {
     label: PropTypes.string,
     placeholder: PropTypes.string,
     keyboardType: PropTypes.string,
-    maxLength: PropTypes.string
+    maxLength: PropTypes.number
 }
 
 SwaadamInput.defaultProps = {

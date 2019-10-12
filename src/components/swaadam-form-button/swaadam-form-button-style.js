@@ -10,7 +10,8 @@ const Styles = StyleSheet.create({
         alignItems: Constants.Center,
         paddingTop: 16,
         paddingBottom: 16,
-        height: 50
+        height: 50,
+        width: '100%'
     },
     formButtonText: {
         color: Constants.Black,

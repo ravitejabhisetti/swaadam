@@ -33,6 +33,7 @@ export const Swaadam_Profile_Screen = 'Profile';
 export const Form_Button_Underlay_Color = '#C0C0C0';
 export const Mobile_Number_Error = 'Please enter a valid 10 digit mobile number';
 export const Submit_Cancel = 'Cancel';
+export const Phone_Verification = 'Phone Verification';
 export const Swaadam_SignIn_Form = [{
     label: 'Mobile Number',
     value: '',

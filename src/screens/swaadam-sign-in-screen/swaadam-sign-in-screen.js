@@ -22,6 +22,7 @@ class SwaadamSignInScreen extends Component {
         Keyboard.dismiss();
         if (validateMobileNumber(formItems[0].value)) {
             this.handleButtonSubmit(false);
+            this.props.navigation.navigate(Constants.User_OTP_Screen);
         } else {
             this.handleButtonSubmit(false);
             this.handleAlertModal(true);
