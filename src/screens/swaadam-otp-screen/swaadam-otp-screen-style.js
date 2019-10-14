@@ -30,7 +30,8 @@ const Styles = StyleSheet.create({
     },
     inputText: {
         fontFamily: Constants.Montserrat_Bold,
-        fontSize: 18
+        fontSize: 18,
+        color: Constants.Black
     },
     inputContainer: {
         borderBottomColor: '#B8BAC6',
@@ -40,7 +41,8 @@ const Styles = StyleSheet.create({
     },
     focusInput: {
         borderBottomColor: Constants.Started_Button_yellow,
-        borderBottomWidth: 2
+        borderBottomWidth: 2,
+        color: Constants.Black
     },
     otpSubmitSection: {
         width: '90%',

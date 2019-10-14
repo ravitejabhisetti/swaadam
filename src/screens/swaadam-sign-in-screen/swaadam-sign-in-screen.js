@@ -4,6 +4,8 @@ import { SwaadamForm, SwaadamNavigationHeader, SwaadamAlertModal } from '../../c
 import { Styles } from './swaadam-sign-in-screen-style';
 import * as Constants from '../../common/swaadam-constants';
 import validateMobileNumber from '../../common/validations';
+import { connect } from 'react-redux';
+import { updateUserMobileNumber } from '../../store/actions/actions';
 
 class SwaadamSignInScreen extends Component {
     constructor(props) {
@@ -22,6 +24,7 @@ class SwaadamSignInScreen extends Component {
         Keyboard.dismiss();
         if (validateMobileNumber(formItems[0].value)) {
             this.handleButtonSubmit(false);
+            this.props.updateUserMobileNumber(formItems[0].value);
             this.props.navigation.navigate(Constants.User_OTP_Screen);
         } else {
             this.handleButtonSubmit(false);
@@ -82,4 +85,10 @@ class SwaadamSignInScreen extends Component {
     }
 };
 
-export default SwaadamSignInScreen;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateUserMobileNumber: (mobileNumber) => dispatch(updateUserMobileNumber(mobileNumber))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SwaadamSignInScreen);

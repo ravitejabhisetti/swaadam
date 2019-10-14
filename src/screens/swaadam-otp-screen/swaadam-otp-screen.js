@@ -4,27 +4,42 @@ import { Styles } from './swaadam-otp-screen-style';
 import * as Constants from '../../common/swaadam-constants';
 import { SwaadamNavigationHeader, SwaadamFormButton } from '../../components/swaadam-common-components';
 import CodeInput from 'react-native-confirmation-code-input';
+import { getUsers, updateUserDetails } from '../../store/actions/actions';
+import { connect } from 'react-redux';
 
 class SwaadamOtpScreen extends Component {
     handleBackAction = () => {
         this.props.navigation.navigate(Constants.User_Sign_In_Screen);
     }
     state = {
-        displayText: false
+        displayActivityIndicator: false,
+        otpCode: ''
     }
     handleCode = (code) => {
         console.log('code to check----', code);
+        if (code.length === 4) {
+            console.log('in handle check----');
+            this.setState((state) => {
+                return {
+                    ...state,
+                    otpCode: code,
+                    displayActivityIndicator: true
+                }
+            });
+            this.handleFormSubmit();
+        }
     }
     handleFormSubmit = () => {
-        console.log('in form submit---', this.otpRef);
+        console.log('in form submit---', this.props.userMobileNumber);
+        this.props.getUsers(this.props.userMobileNumber).catch((error) => {
+            console.log('error to check---', error);
+        }).then(users => users.json()).then((usersResponse) => {
+            console.log('response to check---', usersResponse);
+            this.props.updateUserDetails(usersResponse, false);
+        });;
     }
     render() {
         const otpSubmitText = 'CONFIRM';
-        if (this.state.displayText) {
-            check = (
-                <Text>check the text</Text>
-            )
-        }
         return (
             <View style={Styles.otpSection}>
                 <SwaadamNavigationHeader
@@ -54,7 +69,7 @@ class SwaadamOtpScreen extends Component {
                         <SwaadamFormButton
                             formSubmit={() => this.handleFormSubmit()}
                             underlayColor={Constants.Form_Button_Underlay_Color}
-                            displayActivityIndicator={false}
+                            displayActivityIndicator={this.state.displayActivityIndicator}
                             formButtonTitle={otpSubmitText} />
                     </View>
                     <View style={Styles.resendOtp}>
@@ -66,4 +81,18 @@ class SwaadamOtpScreen extends Component {
     };
 }
 
-export default SwaadamOtpScreen;
+const mapStateToProps = (state) => {
+    return {
+        userMobileNumber: state.userDetails.userMobileNumber,
+        userDetails: state.userDetails.userDetails
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getUsers: () => dispatch(getUsers()),
+        updateUserDetails: () => dispatch(updateUserDetails())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SwaadamOtpScreen);

@@ -34,6 +34,9 @@ export const Form_Button_Underlay_Color = '#C0C0C0';
 export const Mobile_Number_Error = 'Please enter a valid 10 digit mobile number';
 export const Submit_Cancel = 'Cancel';
 export const Phone_Verification = 'Phone Verification';
+export const Method_Get = 'GET';
+export const Users_Url = 'https://swaadam-b825b.firebaseio.com/users.json';
+export const Not_Found = 'Not Found';
 export const Swaadam_SignIn_Form = [{
     label: 'Mobile Number',
     value: '',
