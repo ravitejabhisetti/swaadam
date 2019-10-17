@@ -25,18 +25,21 @@ export const Explore_Screen = 'Explore';
 export const None = 'none';
 export const Absolute = 'absolute';
 export const Swaadam_SignIn_Form_Name = 'SwaadamSignInForm';
+export const Swaadam_Update_Details_Form_Name = 'SwaadamUpdateDetailsForm';
 export const Swaadam_SignIn_Submit_Button = 'REQUEST OTP';
 export const Form_Item_Type_Text_Box = 'textBox';
 export const Sign_In_Form = 'Sign In';
 export const Transparent = 'transparent';
 export const Swaadam_Profile_Screen = 'Profile';
 export const Form_Button_Underlay_Color = '#C0C0C0';
+export const Update_Button = 'Update';
 export const Mobile_Number_Error = 'Please enter a valid 10 digit mobile number';
 export const Submit_Cancel = 'Cancel';
 export const Phone_Verification = 'Phone Verification';
 export const Method_Get = 'GET';
 export const Users_Url = 'https://swaadam-b825b.firebaseio.com/users.json';
 export const Not_Found = 'Not Found';
+export const Update_Details_Header = 'Update Details';
 export const Swaadam_SignIn_Form = [{
     label: 'Mobile Number',
     value: '',
@@ -45,4 +48,25 @@ export const Swaadam_SignIn_Form = [{
     type: 'textBox',
     keyboardType: 'number-pad',
     maxLength: 10
-}]
+}];
+
+export const Swaadam_Update_Details_Form = [
+    {
+        label: 'Name',
+        value: '',
+        fieldName: 'name',
+        placeholder: '',
+        type: 'textBox',
+        keyboardType: 'default',
+        maxLength: 10000
+    },
+    {
+        label: 'Email',
+        value: '',
+        fieldName: 'email',
+        placeholder: '',
+        type: 'textBox',
+        keyboardType: 'default',
+        maxLength: 10000
+    }
+]

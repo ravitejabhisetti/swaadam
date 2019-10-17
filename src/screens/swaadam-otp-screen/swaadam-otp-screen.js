@@ -33,10 +33,26 @@ class SwaadamOtpScreen extends Component {
         console.log('in form submit---', this.props.userMobileNumber);
         this.props.getUsers(this.props.userMobileNumber).catch((error) => {
             console.log('error to check---', error);
+            if (error) {
+                this.handleActivityIndicator(false);
+            }
         }).then(users => users.json()).then((usersResponse) => {
             console.log('response to check---', usersResponse);
             this.props.updateUserDetails(usersResponse, false);
+            if (!usersResponse) {
+                this.handleActivityIndicator(false);
+                this.props.navigation.navigate(Constants.User_Update_Details_Screen);
+            }
         });;
+    }
+
+    handleActivityIndicator(display) {
+        this.setState((state) => {
+            return {
+                ...state,
+                displayActivityIndicator: display
+            }
+        })
     }
     render() {
         const otpSubmitText = 'CONFIRM';

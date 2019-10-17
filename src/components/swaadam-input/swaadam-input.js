@@ -17,7 +17,7 @@ class SwaadamInput extends Component {
     render() {
         let { ...props } = this.props;
         return (
-            <View>
+            <View style={Styles.inputSection}>
                 <View style={Styles.labelTextSection}>
                     <Text style={Styles.labelText}>{props.label}</Text>
                 </View>
