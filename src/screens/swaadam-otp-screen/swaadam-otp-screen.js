@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, TextInputProps } from 'react-native';
+import { View, Text, ScrollView, TextInputProps, AsyncStorage } from 'react-native';
 import { Styles } from './swaadam-otp-screen-style';
 import * as Constants from '../../common/swaadam-constants';
 import { SwaadamNavigationHeader, SwaadamFormButton } from '../../components/swaadam-common-components';
@@ -39,13 +39,15 @@ class SwaadamOtpScreen extends Component {
             }
         }).then(users => users.json()).then((usersResponse) => {
             console.log('response to check---', usersResponse);
-            this.props.updateUserDetails(usersResponse, false);
             const numberPresence = validateUserNumberPresence(usersResponse, this.props.userMobileNumber);
             if (!usersResponse || !numberPresence) {
                 console.log('in new main---');
+                this.props.updateUserDetails(numberPresence, false);
                 this.handleActivityIndicator(false);
                 this.props.navigation.navigate(Constants.User_Update_Details_Screen);
             } else if (usersResponse && numberPresence) {
+                this.props.updateUserDetails(numberPresence, true);
+                AsyncStorage.setItem(Constants.User_Details, JSON.stringify(numberPresence));
                 this.props.navigation.navigate(Constants.Explore_Screen);
             }
         });;

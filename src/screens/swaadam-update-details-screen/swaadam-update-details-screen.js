@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, Keyboard } from 'react-native';
+import { View, Text, ScrollView, Keyboard, AsyncStorage } from 'react-native';
 import { Styles } from './swaadam-update-details-screen-style';
 import * as Constants from '../../common/swaadam-constants';
 import { SwaadamNavigationHeader, SwaadamForm, SwaadamAlertModal } from '../../components/swaadam-common-components';
 import { validateUpdateDetailsForm } from '../../common/validations';
 import { connect } from 'react-redux';
-import { addUser } from '../../store/actions/actions';
+import { addUser, updateUserDetails } from '../../store/actions/actions';
 
 export class SwaadamUpdateDetailsScreen extends Component {
     constructor(props) {
@@ -27,7 +27,8 @@ export class SwaadamUpdateDetailsScreen extends Component {
         validationError = validateUpdateDetailsForm(formValues);
         if (!validationError) {
             console.log('in if check---', validationError);
-            if (this.props.userDetails) {
+            console.log('main crucial user details----', this.props.userDetails);
+            if (!this.props.userDetails) {
                 this.props.addUser(this.props.userMobileNumber, formValues).catch((error) => {
                     console.log('error in form to check---', error);
                     if (error) {
@@ -35,6 +36,15 @@ export class SwaadamUpdateDetailsScreen extends Component {
                     }
                 }).then(usersResponse => usersResponse.json()).then((response) => {
                     console.log('final response to checkk---', response);
+                    this.handleButtonSubmit(false);
+                    const userInfo = {
+                        name: formValues[0].value,
+                        email: formValues[1].value,
+                        mobileNumber: this.props.userMobileNumber
+                    };
+                    this.props.updateUserDetails(userInfo, true);
+                    AsyncStorage.setItem(Constants.User_Details, JSON.stringify(userInfo));
+                    this.props.navigation.navigate(Constants.Explore_Screen);
                 })
             }
         } else {
@@ -107,7 +117,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addUser: (userMobileNumber, userDetails) => dispatch(addUser(userMobileNumber, userDetails))
+        addUser: (userMobileNumber, userDetails) => dispatch(addUser(userMobileNumber, userDetails)),
+        updateUserDetails: (userDetails, userPresence) => dispatch(updateUserDetails(userDetails, userPresence))
     }
 }
 

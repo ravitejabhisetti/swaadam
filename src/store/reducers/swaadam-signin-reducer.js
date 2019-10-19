@@ -16,7 +16,7 @@ const reducer = (state = initialState, action) => {
         case ActionTypes.Update_User_Details:
             return {
                 ...state,
-                userDetails: action.userPresence ? action.userDetails : Constants.Not_Found
+                userDetails: action.userPresence ? action.userDetails : null
             }
         default:
             return state;

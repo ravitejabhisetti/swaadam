@@ -11,6 +11,7 @@ import { View, Text, AsyncStorage, SafeAreaView } from 'react-native';
 import { createRootNavigator } from './router';
 import * as Constants from './src/common/swaadam-constants';
 import { createAppContainer } from 'react-navigation';
+import { connect } from 'react-redux';
 
 class App extends Component {
   constructor(props) {
@@ -21,20 +22,23 @@ class App extends Component {
     signedIn: false
   }
   componentDidMount() {
-    AsyncStorage.getItem(Constants.Is_App_Signed_In).then((isAppSignedIn) => {
-      if (isAppSignedIn) {
-        this.setSate((state) => {
+    AsyncStorage.getItem(Constants.User_Details).then((userDetails) => {
+      if (userDetails) {
+        const parsedUserDetails = JSON.parse(userDetails);
+        this.props.updateUserDetails(parsedUserDetails, true);
+        console.log('user details main to check---', userDetails);
+        console.log('parsed user details to check---', parsedUserDetails);
+        this.setState((state) => {
           return {
             ...state,
-            signedIn: true
+            signedIn: userDetails ? true : false
           }
         });
       }
     })
   }
   render() {
-    const { isSignedIn } = this.state;
-    const RenderApp = createRootNavigator(isSignedIn);
+    const RenderApp = createRootNavigator(this.state.signedIn);
     const RenderAppContainer = createAppContainer(RenderApp);
     return (
       <SafeAreaView style={{ flex: 1 }}>
@@ -44,4 +48,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateUserDetails: (userDetails, userPresence) => dispatch(updateUserDetails(userDetails, userPresence))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);

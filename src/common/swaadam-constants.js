@@ -44,6 +44,7 @@ export const Update_Details_Header = 'Update Details';
 export const Name_Error = 'Please Enter a Valid Name';
 export const Email_Error = 'Please Enter a Valid Email';
 export const Api_Call_Headers = { "Content-Type": "application/json" };
+export const User_Details = 'userDetailsInStorage';
 export const Swaadam_SignIn_Form = [{
     label: 'Mobile Number',
     value: '',

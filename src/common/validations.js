@@ -26,10 +26,10 @@ const validateUpdateDetailsForm = (formValues) => {
 }
 
 const validateUserNumberPresence = (response, mobileNumber) => {
-    let userPresence = false;
+    let userPresence = null;
     for (let key in response) {
         if (response[key].mobileNumber === mobileNumber) {
-            userPresence = true;
+            userPresence = response[key];
             break;
         }
     }
