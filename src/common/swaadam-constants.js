@@ -37,9 +37,13 @@ export const Mobile_Number_Error = 'Please enter a valid 10 digit mobile number'
 export const Submit_Cancel = 'Cancel';
 export const Phone_Verification = 'Phone Verification';
 export const Method_Get = 'GET';
+export const Method_Post = 'POST';
 export const Users_Url = 'https://swaadam-b825b.firebaseio.com/users.json';
 export const Not_Found = 'Not Found';
 export const Update_Details_Header = 'Update Details';
+export const Name_Error = 'Please Enter a Valid Name';
+export const Email_Error = 'Please Enter a Valid Email';
+export const Api_Call_Headers = { "Content-Type": "application/json" };
 export const Swaadam_SignIn_Form = [{
     label: 'Mobile Number',
     value: '',

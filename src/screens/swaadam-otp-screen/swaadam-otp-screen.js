@@ -6,6 +6,7 @@ import { SwaadamNavigationHeader, SwaadamFormButton } from '../../components/swa
 import CodeInput from 'react-native-confirmation-code-input';
 import { getUsers, updateUserDetails } from '../../store/actions/actions';
 import { connect } from 'react-redux';
+import { validateUserNumberPresence } from '../../common/validations';
 
 class SwaadamOtpScreen extends Component {
     handleBackAction = () => {
@@ -39,9 +40,13 @@ class SwaadamOtpScreen extends Component {
         }).then(users => users.json()).then((usersResponse) => {
             console.log('response to check---', usersResponse);
             this.props.updateUserDetails(usersResponse, false);
-            if (!usersResponse) {
+            const numberPresence = validateUserNumberPresence(usersResponse, this.props.userMobileNumber);
+            if (!usersResponse || !numberPresence) {
+                console.log('in new main---');
                 this.handleActivityIndicator(false);
                 this.props.navigation.navigate(Constants.User_Update_Details_Screen);
+            } else if (usersResponse && numberPresence) {
+                this.props.navigation.navigate(Constants.Explore_Screen);
             }
         });;
     }

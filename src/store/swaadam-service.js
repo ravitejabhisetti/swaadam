@@ -5,3 +5,11 @@ export const get = (url) => {
         method: Constants.Method_Get
     });
 }
+
+export const post = (url, body) => {
+    return fetch(url, {
+        method: Constants.Method_Post,
+        body: JSON.stringify(body),
+        headers: Constants.Api_Call_Headers
+    })
+}

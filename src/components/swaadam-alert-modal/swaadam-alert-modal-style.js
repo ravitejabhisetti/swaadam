@@ -22,7 +22,7 @@ const Styles = StyleSheet.create({
         justifyContent: Constants.Center
     },
     alertContent: {
-        minWidth: 250,
+        minWidth: '90%',
         maxWidth: '95%',
         borderRadius: 20,
         maxHeight: '90%',

@@ -1,5 +1,5 @@
 import * as ActionTypes from './swaadam-action-types';
-import { get } from '../swaadam-service';
+import { get, post } from '../swaadam-service';
 import * as Constants from '../../common/swaadam-constants';
 
 export const updateUserMobileNumber = (number) => {
@@ -19,4 +19,15 @@ export const updateUserDetails = (userDetails, userPresence) => {
 
 export const getUsers = (userMobileNumber) => {
     return dispatch => { return get(Constants.Users_Url) };
+}
+
+export const addUser = (userMobileNumber, userDetails) => {
+    const body = {
+        name: userDetails[0].value,
+        email: userDetails[1].value,
+        mobileNumber: userMobileNumber
+    }
+    console.log('in body check---', body);
+    return dispatch => { return post(Constants.Users_Url, body) };
+
 }
