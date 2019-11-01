@@ -1,12 +1,29 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { Styles } from './swaadam-explore-screen-style';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 class SwaadamExploreScreen extends Component {
+    handleLocation = () => {
+        console.log('on location clicked----');
+    }
     render() {
         return (
-            <View>
-                <Text>swaadam explore screen</Text>
-            </View>
+            <ScrollView>
+                <View style={Styles.locationSection}>
+                    <View style={Styles.locationLabel}>
+                        <Text style={Styles.locationText}>Location</Text>
+                    </View>
+                    <TouchableOpacity onPress={() => this.handleLocation()} activeOpacity={1} style={Styles.locationName}>
+                        <View>
+                            <Text style={Styles.locationSelected}>Home</Text>
+                        </View>
+                        <View style={Styles.arrowDown}>
+                            <Icon name="ios-arrow-down" color="black" size={20} />
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            </ScrollView>
         );
     }
 }
