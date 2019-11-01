@@ -45,6 +45,9 @@ export const Name_Error = 'Please Enter a Valid Name';
 export const Email_Error = 'Please Enter a Valid Email';
 export const Api_Call_Headers = { "Content-Type": "application/json" };
 export const User_Details = 'userDetailsInStorage';
+export const otpError = 'Please enter a valid Otp';
+export const Icon_Grey = '#A0A0A0';
+export const Icon_Active = '#101010';
 export const Swaadam_SignIn_Form = [{
     label: 'Mobile Number',
     value: '',

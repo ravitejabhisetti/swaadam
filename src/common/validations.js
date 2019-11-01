@@ -10,6 +10,16 @@ const validateMobileNumber = (number) => {
     }
 }
 
+const validateOtp = (otp) => {
+    const tmpOtp = Number(otp);
+    const validOtp = /^[0-9]+$/.test(tmpOtp);
+    if (validOtp && otp.length === 4) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 const validateUpdateDetailsForm = (formValues) => {
     let error = null;
     console.log('form values to check---', formValues);
@@ -36,4 +46,4 @@ const validateUserNumberPresence = (response, mobileNumber) => {
     return userPresence;
 }
 
-export { validateMobileNumber, validateUpdateDetailsForm, validateUserNumberPresence };
+export { validateMobileNumber, validateUpdateDetailsForm, validateUserNumberPresence, validateOtp };

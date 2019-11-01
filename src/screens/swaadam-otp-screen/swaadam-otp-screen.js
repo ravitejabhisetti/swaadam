@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { View, Text, ScrollView, TextInputProps, AsyncStorage } from 'react-native';
 import { Styles } from './swaadam-otp-screen-style';
 import * as Constants from '../../common/swaadam-constants';
-import { SwaadamNavigationHeader, SwaadamFormButton } from '../../components/swaadam-common-components';
+import { SwaadamNavigationHeader, SwaadamFormButton, SwaadamAlertModal } from '../../components/swaadam-common-components';
 import CodeInput from 'react-native-confirmation-code-input';
 import { getUsers, updateUserDetails } from '../../store/actions/actions';
 import { connect } from 'react-redux';
-import { validateUserNumberPresence } from '../../common/validations';
+import { validateUserNumberPresence, validateOtp } from '../../common/validations';
 
 class SwaadamOtpScreen extends Component {
     handleBackAction = () => {
@@ -14,20 +14,29 @@ class SwaadamOtpScreen extends Component {
     }
     state = {
         displayActivityIndicator: false,
-        otpCode: ''
+        otpCode: '',
+        displayAlertModal: false
     }
     handleCode = (code) => {
         console.log('code to check----', code);
-        if (code.length === 4) {
+        if (validateOtp(code)) {
             console.log('in handle check----');
             this.setState((state) => {
                 return {
                     ...state,
                     otpCode: code,
-                    displayActivityIndicator: true
+                    displayActivityIndicator: true,
+                    displayAlertModal: false
                 }
             });
             this.handleFormSubmit();
+        } else {
+            this.setState((state) => {
+                return {
+                    ...state,
+                    displayAlertModal: true
+                }
+            })
         }
     }
     handleFormSubmit = () => {
@@ -61,10 +70,30 @@ class SwaadamOtpScreen extends Component {
             }
         })
     }
+    handleAlertModal = (display) => {
+        this.setState((state) => {
+            return {
+                ...state,
+                displayAlertModal: display
+            }
+        });
+    }
     render() {
         const otpSubmitText = 'CONFIRM';
+        let alertModal = null;
+        if (this.state.displayAlertModal) {
+            alertModal = (
+                <SwaadamAlertModal
+                    displayButtonSection={false}
+                    alertText={Constants.otpError}
+                    hideAlertModal={() => this.handleAlertModal(false)}
+                    displayAlertModal={this.state.displayAlertModal}
+                />
+            )
+        }
         return (
             <View style={Styles.otpSection}>
+                {alertModal}
                 <SwaadamNavigationHeader
                     headerText={Constants.Phone_Verification}
                     handleBackNavigation={() => this.handleBackAction()} />

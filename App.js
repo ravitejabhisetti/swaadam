@@ -12,6 +12,7 @@ import { createRootNavigator } from './router';
 import * as Constants from './src/common/swaadam-constants';
 import { createAppContainer } from 'react-navigation';
 import { connect } from 'react-redux';
+import { updateUserDetails } from './src/store/actions/actions';
 
 class App extends Component {
   constructor(props) {
