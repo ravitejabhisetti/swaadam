@@ -9,9 +9,10 @@ import * as Constants from '../common/swaadam-constants';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { ExploreStackNavigator } from './swaadam-explore-router';
 
 export const SwaadamHome = (signedIn = false) => createBottomTabNavigator({
-    Explore: SwaadamExploreScreen,
+    Explore: ExploreStackNavigator,
     Cart: SwaadamCartScreen,
     Schedule: SwaadamScheduleScreen,
     Profile: !signedIn ? ProfileStackNavigator : SwaadamProfileScreen

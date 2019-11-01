@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { Styles } from './swaadam-explore-screen-style';
 import Icon from 'react-native-vector-icons/Ionicons';
+import * as Constants from '../../common/swaadam-constants';
 
 class SwaadamExploreScreen extends Component {
     handleLocation = () => {
-        console.log('on location clicked----');
+         this.props.navigation.navigate(Constants.Location_Screen);
     }
     render() {
         return (

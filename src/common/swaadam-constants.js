@@ -21,7 +21,6 @@ export const Home_Screen = 'Home';
 export const User_Sign_In_Screen = 'userSignInScreen';
 export const User_OTP_Screen = 'userOtpScreen';
 export const User_Update_Details_Screen = 'userUpdateDetailsScreen';
-export const Explore_Screen = 'Explore';
 export const None = 'none';
 export const Absolute = 'absolute';
 export const Swaadam_SignIn_Form_Name = 'SwaadamSignInForm';
@@ -48,6 +47,8 @@ export const User_Details = 'userDetailsInStorage';
 export const otpError = 'Please enter a valid Otp';
 export const Icon_Grey = '#A0A0A0';
 export const Icon_Active = '#101010';
+export const Explore_Screen = 'exploreScreen';
+export const Location_Screen = 'locationScreen';
 export const Swaadam_SignIn_Form = [{
     label: 'Mobile Number',
     value: '',
