@@ -22,10 +22,10 @@ const Styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 26,
         textAlign: Constants.Justify,
-        paddingBottom: 15
+        paddingBottom: 10
     },
     startedButtonSection: {
-        width: Constants.Width_100
+        width: Constants.Width_100,
     },
     logoSection: {
         flex: 3,
@@ -34,7 +34,8 @@ const Styles = StyleSheet.create({
         alignItems: Constants.Center
     },
     textSection: {
-        flex: 1.5
+        flex: 1.5,
+        marginTop: 40
     }
 });
 

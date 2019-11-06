@@ -16,7 +16,7 @@ const Styles = StyleSheet.create({
         paddingLeft: 16
     },
     otpTextBoxSection: {
-        width: '70%',
+        width: '80%',
         borderRadius: 8,
         marginTop: 40,
         marginBottom: 40,
