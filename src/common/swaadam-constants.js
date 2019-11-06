@@ -38,6 +38,7 @@ export const Phone_Verification = 'Phone Verification';
 export const Method_Get = 'GET';
 export const Method_Post = 'POST';
 export const Users_Url = 'https://swaadam-b825b.firebaseio.com/users.json';
+export const User_Locations_Url = 'https://swaadam-b825b.firebaseio.com/locations.json';
 export const Not_Found = 'Not Found';
 export const Update_Details_Header = 'Update Details';
 export const Name_Error = 'Please Enter a Valid Name';

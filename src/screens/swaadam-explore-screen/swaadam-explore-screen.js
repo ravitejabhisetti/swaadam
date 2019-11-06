@@ -3,10 +3,23 @@ import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { Styles } from './swaadam-explore-screen-style';
 import Icon from 'react-native-vector-icons/Ionicons';
 import * as Constants from '../../common/swaadam-constants';
+import { getLocations } from '../../store/actions/actions';
+import { connect } from 'react-redux';
 
 class SwaadamExploreScreen extends Component {
     handleLocation = () => {
-         this.props.navigation.navigate(Constants.Location_Screen);
+        this.props.navigation.navigate(Constants.Location_Screen);
+    }
+    componentDidMount() {
+        this.getUserLocations();
+    }
+    getUserLocations() {
+        this.props.getLocations(this.props.userMobileNumber).catch((error) => {
+            console.log('location error to check---');
+        }).then(locations => locations.json()).then((locationsResponse) => {
+            console.log('locations response to check---', locationsResponse);
+        })
+
     }
     render() {
         return (
@@ -29,4 +42,16 @@ class SwaadamExploreScreen extends Component {
     }
 }
 
-export default SwaadamExploreScreen;
+const mapStateToProps = (state) => {
+    return {
+        userMobileNumber: state.userDetails.userMobileNumber
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getLocations: () => dispatch(getLocations())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SwaadamExploreScreen);
