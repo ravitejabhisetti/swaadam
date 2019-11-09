@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 
 class SwaadamExploreScreen extends Component {
     handleLocation = () => {
-        this.props.navigation.navigate(Constants.Location_Screen);
+        this.props.navigation.navigate('loggedInLocationScreen');
     }
 
     render() {

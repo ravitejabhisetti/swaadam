@@ -16,10 +16,10 @@ export const ProfileStackNavigator = createStackNavigator({
 
 ProfileStackNavigator.navigationOptions = ({ navigation }) => {
     let tabBarVisible = true;
-    let routeName = navigation.state.routes[navigation.state.index].routeName
+    let routeName = navigation.state.routes[navigation.state.index].routeName;
     if (routeName === Constants.User_Sign_In_Screen || routeName === Constants.User_OTP_Screen ||
         routeName === Constants.User_Update_Details_Screen) {
-        tabBarVisible = false
+        tabBarVisible = false;
     }
     return {
         tabBarVisible

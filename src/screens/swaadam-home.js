@@ -18,7 +18,7 @@ export const SwaadamHome = (signedIn = false) => createBottomTabNavigator({
     Schedule: SwaadamScheduleScreen,
     Profile: !signedIn ? ProfileStackNavigator : SwaadamProfileScreen
 }, {
-        defaultNavigationOptions: ({ navigation }) => ({
+        defaultNavigationOptions: ({ navigation, signedIn }) => ({
             tabBarIcon: ({ focused }) => {
                 const { routeName } = navigation.state;
                 if (routeName === 'Explore') {
@@ -41,15 +41,3 @@ export const SwaadamHome = (signedIn = false) => createBottomTabNavigator({
             }
         }
     });
-
-export const handleSignIn = () => {
-    AsyncStorage.getItem(Constants.User_Details).then((userDetails) => {
-        console.log('user details cruciasl to check----', userDetails);
-        if(!userDetails) {
-            console.log('in user false check---');
-            return false;
-        } else {
-            return true;
-        }
-    })
-}
