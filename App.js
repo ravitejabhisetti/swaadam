@@ -39,7 +39,7 @@ class App extends Component {
     })
   }
   render() {
-    const RenderApp = createRootNavigator(this.state.signedIn);
+    const RenderApp = createRootNavigator(this.state.signedIn || this.props.userSignedIn);
     const RenderAppContainer = createAppContainer(RenderApp);
     return (
       <SafeAreaView style={{ flex: 1 }}>
@@ -49,10 +49,15 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    userSignedIn: state.userDetails.userSignedIn
+  }
+}
 const mapDispatchToProps = (dispatch) => {
   return {
     updateUserDetails: (userDetails, userPresence) => dispatch(updateUserDetails(userDetails, userPresence))
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -4,7 +4,7 @@ import { Styles } from './swaadam-otp-screen-style';
 import * as Constants from '../../common/swaadam-constants';
 import { SwaadamNavigationHeader, SwaadamFormButton, SwaadamAlertModal } from '../../components/swaadam-common-components';
 import CodeInput from 'react-native-confirmation-code-input';
-import { getUsers, updateUserDetails } from '../../store/actions/actions';
+import { getUsers, updateUserDetails, updateUserSignIn } from '../../store/actions/actions';
 import { connect } from 'react-redux';
 import { validateUserNumberPresence, validateOtp } from '../../common/validations';
 
@@ -56,6 +56,7 @@ class SwaadamOtpScreen extends Component {
                 this.props.navigation.navigate(Constants.User_Update_Details_Screen);
             } else if (usersResponse && numberPresence) {
                 this.props.updateUserDetails(numberPresence, true);
+                this.props.updateUserSignIn(true);
                 AsyncStorage.setItem(Constants.User_Details, JSON.stringify(numberPresence));
                 this.props.navigation.navigate(Constants.Explore_Screen);
             }
@@ -143,7 +144,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getUsers: () => dispatch(getUsers()),
-        updateUserDetails: () => dispatch(updateUserDetails())
+        updateUserDetails: () => dispatch(updateUserDetails()),
+        updateUserSignIn: (signIn) => dispatch(updateUserSignIn(signIn))
     }
 }
 

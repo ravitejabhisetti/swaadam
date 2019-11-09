@@ -5,7 +5,7 @@ import * as Constants from '../../common/swaadam-constants';
 import { SwaadamNavigationHeader, SwaadamForm, SwaadamAlertModal } from '../../components/swaadam-common-components';
 import { validateUpdateDetailsForm } from '../../common/validations';
 import { connect } from 'react-redux';
-import { addUser, updateUserDetails } from '../../store/actions/actions';
+import { addUser, updateUserDetails, updateUserSignIn } from '../../store/actions/actions';
 
 export class SwaadamUpdateDetailsScreen extends Component {
     constructor(props) {
@@ -44,6 +44,7 @@ export class SwaadamUpdateDetailsScreen extends Component {
                     };
                     this.props.updateUserDetails(userInfo, true);
                     AsyncStorage.setItem(Constants.User_Details, JSON.stringify(userInfo));
+                    this.props.updateUserSignIn(true);
                     this.props.navigation.navigate(Constants.Explore_Screen);
                 })
             }
@@ -118,7 +119,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addUser: (userMobileNumber, userDetails) => dispatch(addUser(userMobileNumber, userDetails)),
-        updateUserDetails: (userDetails, userPresence) => dispatch(updateUserDetails(userDetails, userPresence))
+        updateUserDetails: (userDetails, userPresence) => dispatch(updateUserDetails(userDetails, userPresence)),
+        updateUserSignIn: (signIn) => dispatch(updateUserSignIn(signIn))
     }
 }
 

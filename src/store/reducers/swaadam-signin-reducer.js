@@ -3,7 +3,8 @@ import * as Constants from '../../common/swaadam-constants';
 
 const initialState = {
     userMobileNumber: '',
-    userDetails: null
+    userDetails: null,
+    userSignedIn: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -16,7 +17,13 @@ const reducer = (state = initialState, action) => {
         case ActionTypes.Update_User_Details:
             return {
                 ...state,
-                userDetails: action.userPresence ? action.userDetails : null
+                userDetails: action.userPresence ? action.userDetails : null,
+                // userSignedIn: action.userPresence ? true : false,
+            }
+        case ActionTypes.Update_User_Sign_In:
+            return {
+                ...state,
+                userSignedIn: action.userSignedIn ? true : false
             }
         default:
             return state;

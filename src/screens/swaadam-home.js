@@ -10,6 +10,7 @@ import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { ExploreStackNavigator } from './swaadam-explore-router';
+import { AsyncStorage } from 'react-native';
 
 export const SwaadamHome = (signedIn = false) => createBottomTabNavigator({
     Explore: ExploreStackNavigator,
@@ -40,3 +41,15 @@ export const SwaadamHome = (signedIn = false) => createBottomTabNavigator({
             }
         }
     });
+
+export const handleSignIn = () => {
+    AsyncStorage.getItem(Constants.User_Details).then((userDetails) => {
+        console.log('user details cruciasl to check----', userDetails);
+        if(!userDetails) {
+            console.log('in user false check---');
+            return false;
+        } else {
+            return true;
+        }
+    })
+}
