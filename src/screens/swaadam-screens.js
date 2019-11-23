@@ -7,6 +7,7 @@ import SwaadamSignInScreen from './swaadam-sign-in-screen/swaadam-sign-in-screen
 import SwaadamOtpScreen from './swaadam-otp-screen/swaadam-otp-screen';
 import SwaadamUpdateDetailsScreen from './swaadam-update-details-screen/swaadam-update-details-screen';
 import SwaadamLocationScreen from './swaadam-location-screen/swaadam-location-screen';
+import SwaadamNewAddressScreen from './swaadam-new-address-screen/swaadam-new-address-screen';
 
 export {
     SwaadamStartedScreen,
@@ -17,5 +18,6 @@ export {
     SwaadamSignInScreen,
     SwaadamOtpScreen,
     SwaadamUpdateDetailsScreen,
-    SwaadamLocationScreen
+    SwaadamLocationScreen,
+    SwaadamNewAddressScreen
 };

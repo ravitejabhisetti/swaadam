@@ -50,6 +50,8 @@ export const Icon_Grey = '#A0A0A0';
 export const Icon_Active = '#101010';
 export const Explore_Screen = 'exploreScreen';
 export const Location_Screen = 'locationScreen';
+export const Flex_Start = 'flex-start';
+export const Add_New_Address_Screen = 'addNewAddressScreen';
 export const Swaadam_SignIn_Form = [{
     label: 'Mobile Number',
     value: '',

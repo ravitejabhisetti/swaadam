@@ -1,13 +1,14 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
 import * as Constants from '../common/swaadam-constants';
-import { SwaadamExploreScreen, SwaadamLocationScreen } from './swaadam-screens';
+import { SwaadamExploreScreen, SwaadamLocationScreen, SwaadamNewAddressScreen } from './swaadam-screens';
 import { ProfileStackNavigator } from './swaadam-profile-router';
 
 export const ExploreStackNavigator = createStackNavigator({
     exploreScreen: SwaadamExploreScreen,
     locationScreen: ProfileStackNavigator,
     loggedInLocationScreen: SwaadamLocationScreen,
+    addNewAddressScreen: SwaadamNewAddressScreen,
 },
     {
         initialRouteName: Constants.Explore_Screen,
