@@ -50,12 +50,13 @@ class SwaadamOtpScreen extends Component {
             console.log('response to check---', usersResponse);
             const numberPresence = validateUserNumberPresence(usersResponse, this.props.userMobileNumber);
             if (!usersResponse || !numberPresence) {
-                console.log('in new main---');
-                this.props.updateUserDetails(numberPresence, false);
+                console.log('in new main---', usersResponse);
+                this.props.updateUserDetails(usersResponse, false);
                 this.handleActivityIndicator(false);
                 this.props.navigation.navigate(Constants.User_Update_Details_Screen);
             } else if (usersResponse && numberPresence) {
-                this.props.updateUserDetails(numberPresence, true);
+                console.log('users response to check----', usersResponse);
+                this.props.updateUserDetails(usersResponse, true);
                 this.props.updateUserSignIn(true);
                 AsyncStorage.setItem(Constants.User_Details, JSON.stringify(numberPresence));
                 this.props.navigation.navigate(Constants.Explore_Screen);
@@ -144,7 +145,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getUsers: () => dispatch(getUsers()),
-        updateUserDetails: () => dispatch(updateUserDetails()),
+        updateUserDetails: (userDetails, numberPresence) => dispatch(updateUserDetails(userDetails, numberPresence)),
         updateUserSignIn: (signIn) => dispatch(updateUserSignIn(signIn))
     }
 }
