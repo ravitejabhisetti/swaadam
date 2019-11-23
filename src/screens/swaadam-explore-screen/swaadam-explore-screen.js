@@ -8,7 +8,15 @@ import { connect } from 'react-redux';
 
 class SwaadamExploreScreen extends Component {
     handleLocation = () => {
-        this.props.navigation.navigate('loggedInLocationScreen');
+        if (this.props.userDetails) {
+            this.props.navigation.navigate(Constants.Logged_In_Location_Screen);
+        } else {
+            this.props.navigation.navigate(Constants.Location_Screen);
+        }
+    }
+
+    componentDidMount() {
+        console.log('in component did mount check---');
     }
 
     render() {

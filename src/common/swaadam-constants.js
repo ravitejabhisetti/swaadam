@@ -52,6 +52,7 @@ export const Explore_Screen = 'exploreScreen';
 export const Location_Screen = 'locationScreen';
 export const Flex_Start = 'flex-start';
 export const Add_New_Address_Screen = 'addNewAddressScreen';
+export const Logged_In_Location_Screen = 'loggedInLocationScreen';
 export const Swaadam_SignIn_Form = [{
     label: 'Mobile Number',
     value: '',
