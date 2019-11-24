@@ -25,6 +25,7 @@ export const None = 'none';
 export const Absolute = 'absolute';
 export const Swaadam_SignIn_Form_Name = 'SwaadamSignInForm';
 export const Swaadam_Update_Details_Form_Name = 'SwaadamUpdateDetailsForm';
+export const Swaadam_New_Address_Form_Name = 'SwaadamNewAddressForm';
 export const Swaadam_SignIn_Submit_Button = 'REQUEST OTP';
 export const Form_Item_Type_Text_Box = 'textBox';
 export const Sign_In_Form = 'Sign In';
@@ -32,12 +33,15 @@ export const Transparent = 'transparent';
 export const Swaadam_Profile_Screen = 'Profile';
 export const Form_Button_Underlay_Color = '#C0C0C0';
 export const Update_Button = 'Update';
+export const Address_Save = 'Save';
 export const Mobile_Number_Error = 'Please enter a valid 10 digit mobile number';
 export const Submit_Cancel = 'Cancel';
 export const Phone_Verification = 'Phone Verification';
 export const Method_Get = 'GET';
 export const Method_Post = 'POST';
+export const Method_Put = 'PUT';
 export const Users_Url = 'https://swaadam-b825b.firebaseio.com/users.json';
+export const Users_Update = 'https://swaadam-b825b.firebaseio.com/users/';
 export const User_Locations_Url = 'https://swaadam-b825b.firebaseio.com/locations.json';
 export const Not_Found = 'Not Found';
 export const Update_Details_Header = 'Update Details';
@@ -53,6 +57,8 @@ export const Location_Screen = 'locationScreen';
 export const Flex_Start = 'flex-start';
 export const Add_New_Address_Screen = 'addNewAddressScreen';
 export const Logged_In_Location_Screen = 'loggedInLocationScreen';
+export const Address_Error = 'Please enter the address';
+export const Save_As_Error = 'Please enter name of the address to be saved.';
 export const Swaadam_SignIn_Form = [{
     label: 'Mobile Number',
     value: '',
@@ -62,6 +68,27 @@ export const Swaadam_SignIn_Form = [{
     keyboardType: 'number-pad',
     maxLength: 10
 }];
+
+export const Swaadam_New_Address_Form = [
+    {
+        label: 'Address',
+        value: '',
+        fieldName: 'address',
+        placeholder: 'Street/House No.',
+        type: 'textBox',
+        keyboardType: 'default',
+        maxLength: 10000
+    },
+    {
+        label: 'Save as',
+        value: '',
+        fieldName: 'addressName',
+        placeholder: 'home/office/other',
+        type: 'textBox',
+        keyboardType: 'default',
+        maxLength: 10000
+    },
+]
 
 export const Swaadam_Update_Details_Form = [
     {

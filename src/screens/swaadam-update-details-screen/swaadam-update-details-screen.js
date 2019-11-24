@@ -42,6 +42,8 @@ export class SwaadamUpdateDetailsScreen extends Component {
                         email: formValues[1].value,
                         mobileNumber: this.props.userMobileNumber
                     };
+                    userInfo.userId = response.name;
+                    userInfo.locations = 'empty';
                     this.props.updateUserDetails(userInfo, true);
                     AsyncStorage.setItem(Constants.User_Details, JSON.stringify(userInfo));
                     this.props.updateUserSignIn(true);

@@ -3,4 +3,4 @@ export {
     getUsers, updateUserDetails,
     addUser, updateUserSignIn
 } from './swaadam-signin-action';
-export { getLocations, updateUserCurrentLocation } from './swaadam-location-action';
+export { getLocations, updateUserCurrentLocation, addUserLocation } from './swaadam-location-action';

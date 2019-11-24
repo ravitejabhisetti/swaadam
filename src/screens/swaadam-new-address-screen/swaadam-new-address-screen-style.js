@@ -13,11 +13,32 @@ const Styles = StyleSheet.create({
     newAddressMainSection: {
         backgroundColor: Constants.White,
         marginTop: 20,
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
+        borderTopLeftRadius: 50,
+        borderTopRightRadius: 50,
         borderTopWidth: 0.2,
         alignSelf: 'stretch',
         flex: 1
+    },
+    newsRow: {
+        flexDirection: Constants.Row,
+        padding: 20,
+        alignItems: Constants.Center,
+        alignContent: Constants.Center,
+    },
+    addNewTextStyle: {
+        fontFamily: Constants.Montserrat_Bold,
+        color: Constants.Black,
+        fontSize: 14,
+        paddingLeft: 10
+    },
+    newContent: {
+        alignItems: Constants.Center,
+    },
+    formSection: {
+        marginTop: 0,
+        paddingLeft: 10,
+        paddingRight: 30,
+        paddingBottom: 10
     }
 });
 

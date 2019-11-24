@@ -12,6 +12,13 @@ const Styles = StyleSheet.create({
     },
     formSubmitSection: {
         marginTop: 55
+    },
+    addAddressFormSubmit: {
+        marginTop: 10
+    },
+    addAddressForm: {
+        marginBottom: 0,
+        marginTop: 0
     }
 });
 

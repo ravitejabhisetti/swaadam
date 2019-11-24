@@ -13,3 +13,11 @@ export const post = (url, body) => {
         headers: Constants.Api_Call_Headers
     })
 }
+
+export const put = (url, body) => {
+    return fetch(url, {
+        method: Constants.Method_Put,
+        body: JSON.stringify(body),
+        headers: Constants.Api_Call_Headers
+    })
+}

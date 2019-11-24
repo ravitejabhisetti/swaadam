@@ -5,7 +5,7 @@ const Styles = StyleSheet.create({
     container: {
     },
     map: {
-        height: 200
+        height: 150
     },
 });
 

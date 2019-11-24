@@ -45,9 +45,9 @@ class SwaadamForm extends Component {
         }));
         return (
             <View style={Styles.formSection}>
-                <Text style={Styles.formTitle}>{props.formNameToDisplay}</Text>
+                <Text style={[props.formNameToDisplay !== '' ? Styles.formTitle : Styles.addAddressForm]}>{props.formNameToDisplay}</Text>
                 {formItems}
-                <View style={Styles.formSubmitSection}>
+                <View style={[props.formButtonTitle !== 'Save' ? Styles.formSubmitSection : Styles.addAddressFormSubmit]}>
                     <SwaadamFormButton
                         formSubmit={() => this.handleFormSubmit()}
                         underlayColor={Constants.Form_Button_Underlay_Color}

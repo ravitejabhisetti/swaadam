@@ -20,6 +20,17 @@ const validateOtp = (otp) => {
     }
 }
 
+const validateAddNewAddressForm = (formValues) => {
+    let error = null;
+    if (formValues[0].value === '') {
+        error = Constants.Address_Error;
+    }
+    if (formValues[1].value === '') {
+        error = Constants.Save_As_Error;
+    }
+    return error;
+}
+
 const validateUpdateDetailsForm = (formValues) => {
     let error = null;
     console.log('form values to check---', formValues);
@@ -46,4 +57,4 @@ const validateUserNumberPresence = (response, mobileNumber) => {
     return userPresence;
 }
 
-export { validateMobileNumber, validateUpdateDetailsForm, validateUserNumberPresence, validateOtp };
+export { validateMobileNumber, validateUpdateDetailsForm, validateAddNewAddressForm, validateUserNumberPresence, validateOtp };
