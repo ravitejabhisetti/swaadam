@@ -4,7 +4,12 @@ import MapView, { Marker } from 'react-native-maps';
 import { Styles } from './swaadam-location-screen-style';
 import Geolocation from 'react-native-geolocation-service';
 import * as Constants from '../../common/swaadam-constants';
-import { SwaadamLocationEntity, SwaadamNavigationHeader } from '../../components/swaadam-common-components';
+import { connect } from 'react-redux';
+import {
+    SwaadamLocationEntity,
+    SwaadamNavigationHeader,
+    SwaadamUserAddedAddress
+} from '../../components/swaadam-common-components';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 class SwaadamLocationScreen extends Component {
@@ -17,34 +22,25 @@ class SwaadamLocationScreen extends Component {
     }
 
     handleAddNewAddress() {
-        console.log('in handle new address----');
         this.props.navigation.navigate(Constants.Add_New_Address_Screen);
     }
-
-    onRegionChange(region) {
-        console.log('region change check is---', region);
-        // this.setState({ x: region.nativeEvent.coordinate })
-        // this.setState((state) => {
-        //     return {
-        //         ...state,
-        //         region: region
-        //     }
-        // });
-    }
     render() {
+        let userAddedLocationsList = null;
+        if (this.props.userDetails) {
+            if (this.props.userDetails.locations !== 'empty') {
+                console.log('locations to check---', this.props.userDetails.locations);
+                userAddedLocationsList = this.props.userDetails.locations.map((location, index) => {
+                    return (
+                        <SwaadamUserAddedAddress
+                            key={index}
+                            region={location.userLocation}
+                            locationDetails={location.userLocationDetails}
+                        />
+                    )
+                })
+            }
+        }
         return (
-            // <View style={Styles.container}>
-            //     <MapView
-            //         style={Styles.map}
-            //         initialRegion={this.state.region}
-            //         onRegionChange={(region) => this.onRegionChange(region)}
-            //     >
-            //         <Marker draggable
-            //             coordinate={this.state.region}
-            //         // onDragEnd={(e) => this.onRegionChange(e)}
-            //         />
-            //     </MapView>
-            // </View>
             <View style={Styles.locationScreen}>
                 <View style={Styles.navigationSection}>
                     <SwaadamNavigationHeader
@@ -54,11 +50,7 @@ class SwaadamLocationScreen extends Component {
                     </SwaadamNavigationHeader>
                 </View>
                 <ScrollView>
-                    {/* <SwaadamLocationEntity
-                    region={this.state.region}
-                    onRegionChange={(region) => this.onRegionChange(region)}
-                >
-                </SwaadamLocationEntity> */}
+                    {userAddedLocationsList}
                 </ScrollView>
                 <View style={Styles.newAddress}>
                     <View style={Styles.newAddressSection}>
@@ -81,4 +73,10 @@ class SwaadamLocationScreen extends Component {
     }
 }
 
-export default SwaadamLocationScreen;
+const mapStateToProps = (state) => {
+    return {
+        userDetails: state.userDetails.userDetails
+    }
+}
+
+export default connect(mapStateToProps, null)(SwaadamLocationScreen);
