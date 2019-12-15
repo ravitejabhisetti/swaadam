@@ -29,8 +29,9 @@ class SwaadamForm extends Component {
     }
     render() {
         let { handleSubmit, ...props } = this.props;
-        let formItems = (props.formItems.map((item, key) => {
+        let formItems = (props.formItems && props.formItems.map((item, key) => {
             if (item.type === Constants.Form_Item_Type_Text_Box) {
+                console.log('item to check---', item);
                 return <Field
                     component={SwaadamInput}
                     key={key}
@@ -39,6 +40,9 @@ class SwaadamForm extends Component {
                     placeholder={item.placeholder}
                     keyboardType={item.keyboardType}
                     maxLength={item.maxLength}
+                    props={{
+                        value: item.value
+                    }}
                     onChange={(value) => this.updateFieldValue(key, value, item.fieldName)}
                 />
             }

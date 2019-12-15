@@ -39,3 +39,10 @@ export const addUser = (userMobileNumber, userDetails) => {
     return dispatch => { return post(Constants.Users_Url, body) };
 
 }
+
+export const updateUserLocations = (locations) => {
+    return {
+        type: ActionTypes.Update_User_Locations,
+        locations: locations
+    }
+}

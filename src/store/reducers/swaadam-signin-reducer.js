@@ -26,7 +26,14 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 userSignedIn: action.userSignedIn ? true : false
             }
-
+        case ActionTypes.Update_User_Locations:
+            return {
+                ...state,
+                 userDetails: {
+                    ...state.userDetails,
+                    locations: action.locations
+                }
+            }
         default:
             return state;
     }

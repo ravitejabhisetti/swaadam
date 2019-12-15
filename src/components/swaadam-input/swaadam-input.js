@@ -12,10 +12,26 @@ class SwaadamInput extends Component {
         }
     }
     handleChangeText = (textValue) => {
+        this.setState({
+            inputText: textValue
+        })
         this.props.input.onChange(textValue);
     }
+    componentDidMount() {
+        console.log('dange---', this.props);
+        if (this.props.value) {
+            this.props.input.value = this.props.value;
+        }
+        this.setState((state) => {
+            return {
+                ...state,
+                inputText: this.props.input.value,
+            }
+        })
+    }
     render() {
-        let { ...props } = this.props;
+        let { input, ...props } = this.props;
+        console.log('props to check---', props);
         return (
             <View style={Styles.inputSection}>
                 <View style={Styles.labelTextSection}>
@@ -23,11 +39,13 @@ class SwaadamInput extends Component {
                 </View>
                 <View>
                     <TextInput
+                        {...input}
                         keyboardType={props.keyboardType}
                         underlineColorAndroid={Constants.Transparent}
                         style={Styles.textInput}
                         placeholder={props.placeholder}
                         maxLength={props.maxLength}
+                        value={this.state.inputText}
                         onChangeText={(value) => this.handleChangeText(value)}
                         keyboardShouldPersistTaps="never"
                     />

@@ -21,8 +21,24 @@ class SwaadamLocationScreen extends Component {
         this.props.navigation.navigate(Constants.Explore_Screen);
     }
 
+    handleUpdateUserAddress(location, key) {
+        console.log('location to edit---', location);
+        this.props.navigation.navigate(Constants.Add_New_Address_Screen, {
+            newAddress: false,
+            locationDetails: {
+                userLocation: location.userLocation,
+                userLocationDetails: location.userLocationDetails
+            },
+            addressIndex: key
+        });
+    }
+
     handleAddNewAddress() {
-        this.props.navigation.navigate(Constants.Add_New_Address_Screen);
+        this.props.navigation.navigate(Constants.Add_New_Address_Screen, {
+            newAddress: true,
+            locationDetails: null,
+            addressIndex: null
+        });
     }
     render() {
         let userAddedLocationsList = null;
@@ -35,6 +51,7 @@ class SwaadamLocationScreen extends Component {
                             key={index}
                             region={location.userLocation}
                             locationDetails={location.userLocationDetails}
+                            updateAddress={() => this.handleUpdateUserAddress(location, index)}
                         />
                     )
                 })
