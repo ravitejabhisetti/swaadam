@@ -15,7 +15,6 @@ const reducer = (state = initialState, action) => {
                 userMobileNumber: action.userMobileNumber
             }
         case ActionTypes.Update_User_Details:
-            console.log('action to check---', action);
             return {
                 ...state,
                 userDetails: action.userPresence ? action.userDetails : null,

@@ -55,11 +55,9 @@ class SwaadamNewAddressScreen extends Component {
         });
     }
     handleFormSubmit(formValues) {
-        console.log('location values to check---', this.state.region);
         let validationError = null;
         this.handleButtonSubmit(true);
         Keyboard.dismiss();
-        console.log('values to check---', formValues);
         validationError = validateAddNewAddressForm(formValues);
         if (!validationError) {
             // this.handleButtonSubmit(false);
@@ -69,13 +67,11 @@ class SwaadamNewAddressScreen extends Component {
                 }
             }).then(locationResponse => locationResponse.json()).then((response) => {
                 this.handleButtonSubmit(false);
-                console.log('location response to check---', response);
                 this.props.navigation.navigate(Constants.Logged_In_Location_Screen);
                 AsyncStorage.setItem(Constants.User_Details, JSON.stringify(response));
                 this.props.updateUserLocations(response.locations);
             })
         } else {
-            console.log('in else check---', validationError);
             this.handleButtonSubmit(false);
             this.handleAlertModal(true, validationError);
         }

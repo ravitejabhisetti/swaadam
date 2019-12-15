@@ -23,19 +23,14 @@ export class SwaadamUpdateDetailsScreen extends Component {
         let validationError = null;
         this.handleButtonSubmit(true);
         Keyboard.dismiss();
-        console.log('values to check---', formValues);
         validationError = validateUpdateDetailsForm(formValues);
         if (!validationError) {
-            console.log('in if check---', validationError);
-            console.log('main crucial user details----', this.props.userDetails);
             if (!this.props.userDetails) {
                 this.props.addUser(this.props.userMobileNumber, formValues).catch((error) => {
-                    console.log('error in form to check---', error);
                     if (error) {
                         this.handleButtonSubmit(false);
                     }
                 }).then(usersResponse => usersResponse.json()).then((response) => {
-                    console.log('final response to checkk---', response);
                     this.handleButtonSubmit(false);
                     const userInfo = {
                         name: formValues[0].value,
@@ -51,7 +46,6 @@ export class SwaadamUpdateDetailsScreen extends Component {
                 })
             }
         } else {
-            console.log('in else check---', validationError);
             this.handleButtonSubmit(false);
             this.handleAlertModal(true, validationError);
         }

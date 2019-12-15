@@ -35,7 +35,6 @@ export const addUser = (userMobileNumber, userDetails) => {
         mobileNumber: userMobileNumber,
         locations: 'empty'
     }
-    console.log('in body check---', body);
     return dispatch => { return post(Constants.Users_Url, body) };
 
 }

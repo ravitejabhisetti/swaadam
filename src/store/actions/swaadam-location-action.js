@@ -14,11 +14,6 @@ export const updateUserCurrentLocation = (userCurrentLocation) => {
 }
 
 export const addUserLocation = (location, locationDetails, userDetails, newAddress, addressIndex) => {
-    console.log('loc--', location);
-    console.log('locationDetails--', locationDetails);
-    console.log('userDetails--', userDetails);
-    console.log('newAddress--', newAddress);
-    console.log('addressIndex--', addressIndex);
     const details = { locationAddress: locationDetails[0].value, locationName: locationDetails[1].value };
     const locationData = {
         userLocation: location,
@@ -35,7 +30,6 @@ export const addUserLocation = (location, locationDetails, userDetails, newAddre
     } else {
         userDetails.locations[addressIndex].userLocation = location;
         userDetails.locations[addressIndex].userLocationDetails = details;
-        console.log('check main---', userDetails);
     }
     return dispatch => { return put(url, userDetails) };
 }

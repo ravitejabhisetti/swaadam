@@ -18,9 +18,7 @@ class SwaadamOtpScreen extends Component {
         displayAlertModal: false
     }
     handleCode = (code) => {
-        console.log('code to check----', code);
         if (validateOtp(code)) {
-            console.log('in handle check----');
             this.setState((state) => {
                 return {
                     ...state,
@@ -40,27 +38,21 @@ class SwaadamOtpScreen extends Component {
         }
     }
     handleFormSubmit = () => {
-        console.log('in form submit---', this.props.userMobileNumber);
         this.props.getUsers(this.props.userMobileNumber).catch((error) => {
-            console.log('error to check---', error);
             if (error) {
                 this.handleActivityIndicator(false);
             }
         }).then(users => users.json()).then((usersResponse) => {
-            console.log('response to check---', usersResponse);
             const numberPresence = validateUserNumberPresence(usersResponse, this.props.userMobileNumber);
             if (!usersResponse || !numberPresence) {
-                console.log('in new main---', usersResponse);
                 this.props.updateUserDetails(usersResponse, false);
                 this.handleActivityIndicator(false);
                 this.props.navigation.navigate(Constants.User_Update_Details_Screen);
             } else if (usersResponse && numberPresence) {
-                console.log('users response to check----', usersResponse);
                 let details = null;
                 for(const prop in usersResponse) {
                     details = usersResponse[prop];
                 }
-                console.log('details to check---', details);
                 this.props.updateUserDetails(details, true);
                 this.props.updateUserSignIn(true);
                 AsyncStorage.setItem(Constants.User_Details, JSON.stringify(numberPresence));
