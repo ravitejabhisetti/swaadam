@@ -33,9 +33,7 @@ const validateAddNewAddressForm = (formValues) => {
 
 const validateUpdateDetailsForm = (formValues) => {
     let error = null;
-    console.log('form values to check---', formValues);
     if (formValues[0].value === '' || !(/^([a-zA-Z]+\s)*[a-zA-Z]+$/.test(formValues[0].value))) {
-        console.log('name error--', Constants.Name_Error);
         error = Constants.Name_Error;
     }
     if (formValues[1].value === '' || !(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(formValues[1].value))) {

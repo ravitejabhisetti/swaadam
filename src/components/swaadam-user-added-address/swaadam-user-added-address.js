@@ -7,11 +7,10 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 class SwaadamUserAddedAddress extends Component {
     handleEditLocation() {
-        console.log('in handle edit location---');
         this.props.updateAddress();
     }
     handleLocationSelection() {
-        console.log('in handle locatiomn selection----');
+        // console.log('in handle locatiomn selection----');
     }
     render() {
         return (

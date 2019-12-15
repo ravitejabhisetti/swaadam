@@ -56,7 +56,12 @@ class SwaadamOtpScreen extends Component {
                 this.props.navigation.navigate(Constants.User_Update_Details_Screen);
             } else if (usersResponse && numberPresence) {
                 console.log('users response to check----', usersResponse);
-                this.props.updateUserDetails(usersResponse, true);
+                let details = null;
+                for(const prop in usersResponse) {
+                    details = usersResponse[prop];
+                }
+                console.log('details to check---', details);
+                this.props.updateUserDetails(details, true);
                 this.props.updateUserSignIn(true);
                 AsyncStorage.setItem(Constants.User_Details, JSON.stringify(numberPresence));
                 this.props.navigation.navigate(Constants.Explore_Screen);

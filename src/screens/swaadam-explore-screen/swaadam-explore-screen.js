@@ -10,7 +10,6 @@ import { updateUserCurrentLocation } from '../../store/actions/actions';
 
 class SwaadamExploreScreen extends Component {
     handleLocation = () => {
-        console.log('users ddd---', this.props.userDetails);
         if (this.props.userDetails) {
             this.props.navigation.navigate(Constants.Logged_In_Location_Screen);
         } else {
@@ -28,11 +27,9 @@ class SwaadamExploreScreen extends Component {
                 }
             )
             granted.then((response) => {
-                console.log('response to check----', response);
                 if (response === PermissionsAndroid.RESULTS.GRANTED) {
                     Geolocation.getCurrentPosition(
                         (position) => {
-                            console.log('position to check isss----', position);
                             let location = {
                                 latitude: position.coords.latitude, longitude: position.coords.longitude, latitudeDelta: 0,
                                 longitudeDelta: 0
@@ -41,12 +38,11 @@ class SwaadamExploreScreen extends Component {
                         },
                         (error) => {
                             // See error code charts below.
-                            console.log("error to check---", error);
                         },
                         { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
                     );
                 } else {
-                    console.log("location permission denied");
+                    // console.log("location permission denied");
                 }
             });
         } catch (err) {
@@ -55,7 +51,6 @@ class SwaadamExploreScreen extends Component {
     }
 
     componentDidMount() {
-        console.log('in component did mount check---');
         this.requestLocationPermission();
     }
 

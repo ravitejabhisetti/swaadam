@@ -28,17 +28,13 @@ class SwaadamNewAddressScreen extends Component {
         this.props.navigation.navigate(Constants.Logged_In_Location_Screen);
     }
     componentDidMount() {
-        console.log('current location is---', this.props.userCurrentLocation);
         const newAddress = this.props.navigation.getParam('newAddress');
         const locationDetails = this.props.navigation.getParam('locationDetails');
         const addressIndex = this.props.navigation.getParam('addressIndex');
         const tmpForm = JSON.parse(JSON.stringify(Constants.Swaadam_New_Address_Form));
         if (locationDetails) {
-            console.log('location details---', locationDetails);
-            console.log('form check---', this.state.formDetails);
             tmpForm[0].value = locationDetails.userLocationDetails.locationAddress
             tmpForm[1].value = locationDetails.userLocationDetails.locationName;
-            console.log('tmp form---', tmpForm);
         }
         this.setState((state) => {
             return {
@@ -51,7 +47,6 @@ class SwaadamNewAddressScreen extends Component {
         })
     }
     onRegionChange(region) {
-        console.log('region to change---', region);
         this.setState((state) => {
             return {
                 ...state,

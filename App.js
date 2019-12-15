@@ -27,8 +27,6 @@ class App extends Component {
       if (userDetails) {
         const parsedUserDetails = JSON.parse(userDetails);
         this.props.updateUserDetails(parsedUserDetails, true);
-        console.log('user details main to check---', userDetails);
-        console.log('parsed user details to check---', parsedUserDetails);
         this.setState((state) => {
           return {
             ...state,

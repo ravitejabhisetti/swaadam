@@ -18,7 +18,6 @@ class SwaadamInput extends Component {
         this.props.input.onChange(textValue);
     }
     componentDidMount() {
-        console.log('dange---', this.props);
         if (this.props.value) {
             this.props.input.value = this.props.value;
         }
@@ -31,7 +30,6 @@ class SwaadamInput extends Component {
     }
     render() {
         let { input, ...props } = this.props;
-        console.log('props to check---', props);
         return (
             <View style={Styles.inputSection}>
                 <View style={Styles.labelTextSection}>

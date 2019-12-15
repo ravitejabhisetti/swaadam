@@ -31,7 +31,6 @@ class SwaadamForm extends Component {
         let { handleSubmit, ...props } = this.props;
         let formItems = (props.formItems && props.formItems.map((item, key) => {
             if (item.type === Constants.Form_Item_Type_Text_Box) {
-                console.log('item to check---', item);
                 return <Field
                     component={SwaadamInput}
                     key={key}

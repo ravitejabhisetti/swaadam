@@ -22,7 +22,6 @@ class SwaadamLocationScreen extends Component {
     }
 
     handleUpdateUserAddress(location, key) {
-        console.log('location to edit---', location);
         this.props.navigation.navigate(Constants.Add_New_Address_Screen, {
             newAddress: false,
             locationDetails: {
@@ -44,7 +43,6 @@ class SwaadamLocationScreen extends Component {
         let userAddedLocationsList = null;
         if (this.props.userDetails) {
             if (this.props.userDetails.locations !== 'empty') {
-                console.log('locations to check---', this.props.userDetails.locations);
                 userAddedLocationsList = this.props.userDetails.locations.map((location, index) => {
                     return (
                         <SwaadamUserAddedAddress
