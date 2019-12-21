@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Keyboard } from 'react-native';
-import { SwaadamForm, SwaadamNavigationHeader, SwaadamAlertModal } from '../../components/swaadam-common-components';
+import {
+    SwaadamForm,
+    SwaadamNavigationHeader,
+    SwaadamAlertModal
+} from '../../components/swaadam-common-components';
 import { Styles } from './swaadam-sign-in-screen-style';
 import * as Constants from '../../common/swaadam-constants';
 import { validateMobileNumber } from '../../common/validations';

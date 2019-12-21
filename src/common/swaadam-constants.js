@@ -59,6 +59,33 @@ export const Add_New_Address_Screen = 'addNewAddressScreen';
 export const Logged_In_Location_Screen = 'loggedInLocationScreen';
 export const Address_Error = 'Please enter the address';
 export const Save_As_Error = 'Please enter name of the address to be saved.';
+export const EntitiesList = [
+    {
+        name: 'Monday',
+        cartDescription: 'No meals in Cart',
+        scheduleDescription: 'No orders scheduled'
+    },
+    {
+        name: 'Tuesday',
+        cartDescription: 'No meals in Cart',
+        scheduleDescription: 'No orders scheduled'
+    },
+    {
+        name: 'Wednesday',
+        cartDescription: 'No meals in Cart',
+        scheduleDescription: 'No orders scheduled'
+    },
+    {
+        name: 'Thursday',
+        cartDescription: 'No meals in Cart',
+        scheduleDescription: 'No orders scheduled'
+    },
+    {
+        name: 'Friday',
+        cartDescription: 'No meals in Cart',
+        scheduleDescription: 'No orders scheduled'
+    }
+];
 export const Swaadam_SignIn_Form = [{
     label: 'Mobile Number',
     value: '',
