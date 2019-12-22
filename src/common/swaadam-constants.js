@@ -59,6 +59,7 @@ export const Add_New_Address_Screen = 'addNewAddressScreen';
 export const Logged_In_Location_Screen = 'loggedInLocationScreen';
 export const Address_Error = 'Please enter the address';
 export const Save_As_Error = 'Please enter name of the address to be saved.';
+export const Profile_Entities_Screen = 'profileEntitiesScreen';
 export const EntitiesList = [
     {
         name: 'Monday',
@@ -135,5 +136,43 @@ export const Swaadam_Update_Details_Form = [
         type: 'textBox',
         keyboardType: 'default',
         maxLength: 10000
+    }
+]
+
+export const profileEntitiesList = [
+    {
+        iconName: 'edit',
+        entityName: 'Edit Profile',
+        action: 'navigate'
+    },
+    {
+        iconName: 'address-book-o',
+        entityName: 'Saved Addresses',
+        action: 'navigate'
+    },
+    {
+        iconName: 'list-ul',
+        entityName: 'Orders History',
+        action: 'navigate'
+    },
+    {
+        iconName: 'attach-money',
+        entityName: 'Tinmen Credits',
+        action: 'display'
+    },
+    {
+        iconName: 'call',
+        entityName: 'Call Support',
+        action: 'none'
+    },
+    {
+        iconName: 'email',
+        entityName: 'Email Support',
+        action: 'none'
+    },
+    {
+        iconName: 'logout',
+        entityName: 'Logout',
+        action: 'none'
     }
 ]

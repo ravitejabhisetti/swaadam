@@ -5,7 +5,7 @@ import * as Constants from '../../common/swaadam-constants';
 import { SwaadamNavigationHeader, SwaadamForm, SwaadamAlertModal } from '../../components/swaadam-common-components';
 import { validateUpdateDetailsForm } from '../../common/validations';
 import { connect } from 'react-redux';
-import { addUser, updateUserDetails, updateUserSignIn } from '../../store/actions/actions';
+import { addUser, updateUserDetails, updateUserSignIn, updateUser } from '../../store/actions/actions';
 
 export class SwaadamUpdateDetailsScreen extends Component {
     constructor(props) {
@@ -14,16 +14,47 @@ export class SwaadamUpdateDetailsScreen extends Component {
     state = {
         displayActivityIndicator: false,
         displayAlertModal: false,
-        alertModalAlertText: ''
+        alertModalAlertText: '',
+        formEntites: null,
+        newForm: null
+    }
+    componentDidMount() {
+        const updateForm = this.props.navigation.getParam('newForm');
+        const tmpForm = JSON.parse(JSON.stringify(Constants.Swaadam_Update_Details_Form));
+        if (updateForm) {
+            this.setState((state) => {
+                return {
+                    ...state,
+                    formEntites: Constants.Swaadam_Update_Details_Form,
+                    newForm: true
+                }
+            })
+        } else {
+            tmpForm[0].value = this.props.userDetails.name;
+            tmpForm[1].value = this.props.userDetails.email;
+            this.setState((state) => {
+                return {
+                    ...state,
+                    formEntites: tmpForm,
+                    newForm: false
+                }
+            })
+        }
     }
     handleBackAction() {
-        this.props.navigation.navigate(Constants.User_OTP_Screen);
+        if (this.state.newForm) {
+            this.props.navigation.navigate(Constants.User_OTP_Screen);
+        } else {
+            this.props.navigation.navigate(Constants.Profile_Entities_Screen);
+        }
     }
     handleFormSubmit(formValues) {
+        console.log('form values---', formValues);
         let validationError = null;
         this.handleButtonSubmit(true);
         Keyboard.dismiss();
         validationError = validateUpdateDetailsForm(formValues);
+        console.log('validation error to check--', validationError);
         if (!validationError) {
             if (!this.props.userDetails) {
                 this.props.addUser(this.props.userMobileNumber, formValues).catch((error) => {
@@ -31,6 +62,7 @@ export class SwaadamUpdateDetailsScreen extends Component {
                         this.handleButtonSubmit(false);
                     }
                 }).then(usersResponse => usersResponse.json()).then((response) => {
+                    console.log('res----', response);
                     this.handleButtonSubmit(false);
                     const userInfo = {
                         name: formValues[0].value,
@@ -39,10 +71,29 @@ export class SwaadamUpdateDetailsScreen extends Component {
                     };
                     userInfo.userId = response.name;
                     userInfo.locations = 'empty';
+                    console.log('user info to check---', userInfo);
                     this.props.updateUserDetails(userInfo, true);
                     AsyncStorage.setItem(Constants.User_Details, JSON.stringify(userInfo));
+                    // if (this.state.newForm) {
                     this.props.updateUserSignIn(true);
                     this.props.navigation.navigate(Constants.Explore_Screen);
+                    // } else {
+                    //     this.props.navigation.navigate(Constants.Profile_Entities_Screen);
+                    // }
+                })
+            } else {
+                this.props.updateUser(this.props.userDetails, formValues).catch((error) => {
+                    if (error) {
+                        this.handleButtonSubmit(false);
+                    }
+                }).then((usersResponse) => usersResponse.json()).then((response) => {
+                    const tmpUserDetails = this.props.userDetails;
+                    tmpUserDetails.name = formValues[0].value;
+                    tmpUserDetails.email = formValues[1].value;
+                    this.props.updateUserDetails(tmpUserDetails, true);
+                    this.handleButtonSubmit(false);
+                    AsyncStorage.setItem(Constants.User_Details, JSON.stringify(tmpUserDetails));
+                    this.props.navigation.navigate(Constants.Profile_Entities_Screen);
                 })
             }
         } else {
@@ -94,7 +145,7 @@ export class SwaadamUpdateDetailsScreen extends Component {
                             handleFormSubmit={(values) => this.handleFormSubmit(values)}
                             formNameToDisplay={Constants.Update_Details_Header}
                             form={Constants.Swaadam_Update_Details_Form_Name}
-                            formItems={Constants.Swaadam_Update_Details_Form}
+                            formItems={this.state.formEntites}
                             formButtonTitle={Constants.Update_Button}
                             displayActivityIndicator={this.state.displayActivityIndicator}
                         />
@@ -116,7 +167,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addUser: (userMobileNumber, userDetails) => dispatch(addUser(userMobileNumber, userDetails)),
         updateUserDetails: (userDetails, userPresence) => dispatch(updateUserDetails(userDetails, userPresence)),
-        updateUserSignIn: (signIn) => dispatch(updateUserSignIn(signIn))
+        updateUserSignIn: (signIn) => dispatch(updateUserSignIn(signIn)),
+        updateUser: (userDetails, formValues) => dispatch(updateUser(userDetails, formValues))
     }
 }
 

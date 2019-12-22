@@ -2,9 +2,10 @@ import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import {
     SwaadamExploreScreen, SwaadamCartScreen,
-    SwaadamScheduleScreen, SwaadamProfileScreen
+    SwaadamScheduleScreen
 } from './swaadam-screens';
 import { ProfileStackNavigator } from './swaadam-profile-router';
+import { SignedInProfileStackNavigator } from './swaadam-signedin-profile-router';
 import * as Constants from '../common/swaadam-constants';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FeatherIcon from 'react-native-vector-icons/Feather';
@@ -16,7 +17,7 @@ export const SwaadamHome = (signedIn = false) => createBottomTabNavigator({
     Explore: ExploreStackNavigator,
     Cart: SwaadamCartScreen,
     Schedule: SwaadamScheduleScreen,
-    Profile: !signedIn ? ProfileStackNavigator : SwaadamProfileScreen
+    Profile: !signedIn ? ProfileStackNavigator : SignedInProfileStackNavigator
 }, {
         defaultNavigationOptions: ({ navigation, signedIn }) => ({
             tabBarIcon: ({ focused }) => {

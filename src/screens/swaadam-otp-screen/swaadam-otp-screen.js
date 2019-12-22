@@ -47,7 +47,9 @@ class SwaadamOtpScreen extends Component {
             if (!usersResponse || !numberPresence) {
                 this.props.updateUserDetails(usersResponse, false);
                 this.handleActivityIndicator(false);
-                this.props.navigation.navigate(Constants.User_Update_Details_Screen);
+                this.props.navigation.navigate(Constants.User_Update_Details_Screen, {
+                    newForm: true
+                });
             } else if (usersResponse && numberPresence) {
                 let details = null;
                 for(const prop in usersResponse) {

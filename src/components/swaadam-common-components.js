@@ -7,6 +7,7 @@ import SwaadamNavigationHeader from './swaadam-navigation-header/swaadam-navigat
 import SwaadamLocationEntity from './swaadam-location-entity/swaadam-location-entity';
 import SwaadamUserAddedAddress from './swaadam-user-added-address/swaadam-user-added-address';
 import CardScheduleEntity from './cart-schedule-entity/cart-schedule-entity';
+import ProfileEntity from './profile-entity/profile-entity';
 
 export {
     SwaadamStartedButton,
@@ -17,5 +18,6 @@ export {
     SwaadamNavigationHeader,
     SwaadamLocationEntity,
     SwaadamUserAddedAddress,
-    CardScheduleEntity
+    CardScheduleEntity,
+    ProfileEntity
 };
