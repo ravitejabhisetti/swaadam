@@ -28,7 +28,7 @@ class SwaadamLocationScreen extends Component {
                 ...state,
                 parent: parent
             }
-        })
+        });
     }
 
     handleBackAction() {

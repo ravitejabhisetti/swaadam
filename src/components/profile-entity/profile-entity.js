@@ -8,7 +8,7 @@ import MaterialIocn from 'react-native-vector-icons/MaterialIcons';
 class ProfileEntity extends Component {
     handleProfileEntity(entity) {
         console.log('in handle profile entity---', entity);
-        if (entity.iconName === 'edit' || entity.iconName === 'address-book-o' || entity.iconName === 'list-ul') {
+        if (entity.iconName === 'edit' || entity.iconName === 'address-book-o' || entity.iconName === 'list-ul' || entity.iconName === 'logout') {
             this.props.navigateProfileAction();
         }
     }

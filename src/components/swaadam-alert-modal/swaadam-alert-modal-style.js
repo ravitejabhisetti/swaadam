@@ -63,6 +63,19 @@ const Styles = StyleSheet.create({
         color: Constants.White,
         fontFamily: Constants.Montserrat_Bold,
         fontSize: 16        
+    },
+    cancelButtonText: {
+        color: Constants.Black,
+        fontFamily: Constants.Montserrat_Regular,
+        fontSize: 16    
+    },
+    buttonsList: {
+        justifyContent: Constants.Space_Between,
+        alignItems: Constants.Center,
+        flexDirection: Constants.Row
+    },
+    cancelView: {
+        marginRight: 25
     }
 });
 

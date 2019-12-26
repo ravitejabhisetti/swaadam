@@ -25,6 +25,21 @@ class SwaadamAlertModal extends Component {
                     <Text style={Styles.alertButtonText}>Cancel</Text>
                 </TouchableHighlight>
             )
+        } else {
+            buttonsSection = (
+                <View style={Styles.buttonsList}>
+                    <View style={Styles.cancelView}>
+                        <TouchableHighlight onPress={this.handleAlertContent}>
+                            <Text style={Styles.cancelButtonText}>Cancel</Text>
+                        </TouchableHighlight>
+                    </View>
+                    <View>
+                        <TouchableHighlight onPress={this.handleSuccess} style={Styles.alertButtonSection}>
+                            <Text style={Styles.alertButtonText}>Cancel</Text>
+                        </TouchableHighlight>
+                    </View>
+                </View>
+            )
         }
         return (
             <View style={Styles.modalSection}>
