@@ -31,6 +31,10 @@ class ProfileEntity extends Component {
             navigation = (
                 <EditIcon color="#000000" name="right" size={16} />
             )
+        } else if (this.props.entity.action === 'display') {
+            navigation = (
+                <Text style={Styles.creditsText}>Rs. 0</Text>
+            )
         }
         return (
             <TouchableOpacity onPress={() => this.handleProfileEntity(this.props.entity)} style={Styles.profileEntitySection}>

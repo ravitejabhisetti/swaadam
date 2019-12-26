@@ -11,7 +11,9 @@ import { updateUserCurrentLocation } from '../../store/actions/actions';
 class SwaadamExploreScreen extends Component {
     handleLocation = () => {
         if (this.props.userDetails) {
-            this.props.navigation.navigate(Constants.Logged_In_Location_Screen);
+            this.props.navigation.navigate(Constants.Logged_In_Location_Screen, {
+                parent: true
+            });
         } else {
             this.props.navigation.navigate(Constants.Location_Screen);
         }

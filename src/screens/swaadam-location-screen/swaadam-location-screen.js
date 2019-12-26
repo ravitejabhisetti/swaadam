@@ -17,8 +17,26 @@ class SwaadamLocationScreen extends Component {
         super(props);
     }
 
+    state = {
+        parent: true
+    }
+
+    componentDidMount() {
+        const parent = this.props.navigation.getParam('parent');
+        this.setState((state) => {
+            return {
+                ...state,
+                parent: parent
+            }
+        })
+    }
+
     handleBackAction() {
+        if(this.state.parent) {
         this.props.navigation.navigate(Constants.Explore_Screen);
+        } else {
+            this.props.navigation.navigate(Constants.Profile_Entities_Screen);
+        }
     }
 
     handleUpdateUserAddress(location, key) {

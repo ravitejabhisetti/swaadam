@@ -12,6 +12,10 @@ class SwaadamProfileScreen extends Component {
             this.props.navigation.navigate(Constants.User_Update_Details_Screen, {
                 newForm: false
             });
+        } else if (entity.iconName === 'address-book-o') {
+            this.props.navigation.navigate(Constants.Logged_In_Location_Screen, {
+                parent: false
+            });
         }
     }
     render() {

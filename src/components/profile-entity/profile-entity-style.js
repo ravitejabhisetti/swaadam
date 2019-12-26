@@ -31,6 +31,11 @@ const Styles = StyleSheet.create({
         fontFamily: Constants.Montserrat_Regular,
         color: '#000000',
         fontSize: 14
+    },
+    creditsText: {
+        fontFamily: Constants.Montserrat_Bold,
+        color: '#000000',
+        fontSize: 14
     }
 });
 
