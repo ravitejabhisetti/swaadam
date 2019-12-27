@@ -14,12 +14,12 @@ class SwaadamProfileScreen extends Component {
         console.log('profile entity checkk----', entity);
         if (entity.iconName === 'edit') {
             this.handleAlertModal(false);
-            this.props.navigation.navigate(Constants.User_Update_Details_Screen, {
+            this.props.navigation.navigate(Constants.Profile_Update_Details_Screen, {
                 newForm: false
             });
         } else if (entity.iconName === 'address-book-o') {
             this.handleAlertModal(false);
-            this.props.navigation.navigate(Constants.Logged_In_Location_Screen, {
+            this.props.navigation.navigate(Constants.Profile_Saved_Addresses_Screen, {
                 parent: false
             });
         } else if (entity.iconName === 'logout') {

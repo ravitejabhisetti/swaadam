@@ -61,6 +61,8 @@ export const Address_Error = 'Please enter the address';
 export const Save_As_Error = 'Please enter name of the address to be saved.';
 export const Profile_Entities_Screen = 'profileEntitiesScreen';
 export const Logout_Text = 'Are you sure you want to logout?';
+export const Profile_Update_Details_Screen = 'profileUserUpdateScreen';
+export const Profile_Saved_Addresses_Screen = 'profileSavedAddressesScreen';
 export const EntitiesList = [
     {
         name: 'Monday',
