@@ -53,3 +53,9 @@ export const updateUserLocations = (locations) => {
         locations: locations
     }
 }
+
+export const resetUser = () => {
+    return {
+        type: ActionTypes.Reset_User
+    }
+}

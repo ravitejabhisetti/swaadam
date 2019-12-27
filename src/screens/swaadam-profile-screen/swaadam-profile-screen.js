@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, AsyncStorage } from 'react-native';
 import { Styles } from './swaadam-profile-screen-style';
 import { connect } from 'react-redux';
 import { ProfileEntity, SwaadamAlertModal } from '../../components/swaadam-common-components';
 import * as Constants from '../../common/swaadam-constants';
+import { resetUser } from '../../store/actions/actions';
 
 class SwaadamProfileScreen extends Component {
     state = {
@@ -35,6 +36,14 @@ class SwaadamProfileScreen extends Component {
             }
         })
     }
+    handleLogout() {
+        this.handleAlertModal(false);
+        this.props.resetUser();
+        AsyncStorage.clear().then(() => {
+            console.log('storage is cleared---');
+        });
+        this.props.navigation.navigate(Constants.Swaadam_Started_screen);
+    }
     render() {
         let alertModal = null;
         if (this.state.displayAlertModal) {
@@ -43,6 +52,7 @@ class SwaadamProfileScreen extends Component {
                     displayButtonSection={true}
                     alertText={Constants.Logout_Text}
                     hideAlertModal={() => this.handleAlertModal(false)}
+                    handleLogout={() => this.handleLogout()}
                     displayAlertModal={this.state.displayAlertModal}
                 />
             )
@@ -62,7 +72,7 @@ class SwaadamProfileScreen extends Component {
                 <View style={Styles.profileHeader}>
                     <View>
                         <Text style={Styles.userName}>{this.props.name}</Text>
-                        <Text style={Styles.profileText}>{this.props.userDetails.mobileNumber}</Text>
+                        <Text style={Styles.profileText}>{this.props.userDetails && this.props.userDetails.mobileNumber}</Text>
                         <Text style={Styles.profileText}>{this.props.email}</Text>
                     </View>
                     <View style={Styles.nameIconSection}>
@@ -80,15 +90,15 @@ class SwaadamProfileScreen extends Component {
 const mapStateToProps = (state) => {
     return {
         userDetails: state.userDetails.userDetails,
-        name: state.userDetails.userDetails.name,
-        email: state.userDetails.userDetails.email
+        name: state.userDetails.userDetails && state.userDetails.userDetails.name,
+        email: state.userDetails.userDetails && state.userDetails.userDetails.email
     }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         //
-//     }
-// }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        resetUser: () => dispatch(resetUser()),
+    }
+}
 
-export default connect(mapStateToProps, null)(SwaadamProfileScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(SwaadamProfileScreen);

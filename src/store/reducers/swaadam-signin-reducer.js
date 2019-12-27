@@ -33,6 +33,13 @@ const reducer = (state = initialState, action) => {
                     locations: action.locations
                 }
             }
+        case ActionTypes.Reset_User:
+            return {
+                ...state,
+                userDetails: null,
+                userSignedIn: false,
+                userMobileNumber: ''
+            }
         default:
             return state;
     }

@@ -17,6 +17,10 @@ class SwaadamAlertModal extends Component {
         this.props.hideAlertModal();
     }
 
+    handleSuccess = () => {
+        this.props.handleLogout();
+    }
+
     render() {
         let buttonsSection = null;
         if (!this.props.displayButtonSection) {
@@ -35,7 +39,7 @@ class SwaadamAlertModal extends Component {
                     </View>
                     <View>
                         <TouchableHighlight onPress={this.handleSuccess} style={Styles.alertButtonSection}>
-                            <Text style={Styles.alertButtonText}>Cancel</Text>
+                            <Text style={Styles.alertButtonText}>Logout</Text>
                         </TouchableHighlight>
                     </View>
                 </View>
