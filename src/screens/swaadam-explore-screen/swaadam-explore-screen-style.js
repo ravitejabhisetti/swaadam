@@ -24,6 +24,12 @@ const Styles = StyleSheet.create({
     },
     arrowDown: {
         paddingLeft: 10
+    },
+    exploreSection: {
+        backgroundColor: '#ECEFF1'
+    },
+    scrollContainer: {
+        flexGrow: 1
     }
 });
 

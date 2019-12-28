@@ -63,6 +63,7 @@ export const Profile_Entities_Screen = 'profileEntitiesScreen';
 export const Logout_Text = 'Are you sure you want to logout?';
 export const Profile_Update_Details_Screen = 'profileUserUpdateScreen';
 export const Profile_Saved_Addresses_Screen = 'profileSavedAddressesScreen';
+export const Delivery_Description_Screen = 'deliveryDescriptionScreen';
 export const EntitiesList = [
     {
         name: 'Monday',
@@ -177,5 +178,28 @@ export const profileEntitiesList = [
         iconName: 'logout',
         entityName: 'Logout',
         action: 'none'
+    }
+]
+
+export const optionsList = [
+    {
+        name: 'Lunch',
+        iconName: 'football'
+    },
+    {
+        name: 'Dinner',
+        iconName: 'glass-wine'
+    },
+    {
+        name: 'Veg',
+        iconName: 'food-apple'
+    },
+    {
+        name: 'Non Veg',
+        iconName: 'food-fork-drink'
+    },
+    {
+        name: 'Chefs',
+        iconName: 'folder-multiple'
     }
 ]

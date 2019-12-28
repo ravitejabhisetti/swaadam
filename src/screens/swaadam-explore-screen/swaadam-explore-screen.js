@@ -7,6 +7,7 @@ import { getLocations } from '../../store/actions/actions';
 import { connect } from 'react-redux';
 import Geolocation from 'react-native-geolocation-service';
 import { updateUserCurrentLocation } from '../../store/actions/actions';
+import { SwaadamDeliveryEntity, SwaadamOptionsList } from '../../components/swaadam-common-components';
 
 class SwaadamExploreScreen extends Component {
     handleLocation = () => {
@@ -56,9 +57,13 @@ class SwaadamExploreScreen extends Component {
         this.requestLocationPermission();
     }
 
+    handleDeliveryEntity() {
+        this.props.navigation.navigate(Constants.Delivery_Description_Screen);
+    }
+
     render() {
         return (
-            <ScrollView>
+            <ScrollView style={Styles.exploreSection}>
                 <View style={Styles.locationSection}>
                     <View style={Styles.locationLabel}>
                         <Text style={Styles.locationText}>Location</Text>
@@ -72,6 +77,10 @@ class SwaadamExploreScreen extends Component {
                         </View>
                     </TouchableOpacity>
                 </View>
+                <SwaadamDeliveryEntity handleDeliveryEntity={() => this.handleDeliveryEntity()} />
+                <ScrollView showsHorizontalScrollIndicator={false} style={Styles.scrollContainer} horizontal={true}>
+                    <SwaadamOptionsList />
+                </ScrollView>
             </ScrollView>
         );
     }

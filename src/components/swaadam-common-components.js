@@ -8,6 +8,9 @@ import SwaadamLocationEntity from './swaadam-location-entity/swaadam-location-en
 import SwaadamUserAddedAddress from './swaadam-user-added-address/swaadam-user-added-address';
 import CardScheduleEntity from './cart-schedule-entity/cart-schedule-entity';
 import ProfileEntity from './profile-entity/profile-entity';
+import SwaadamDeliveryEntity from './swaadam-delivery-entity/swaadam-delivery-entity';
+import SwaadamOptionsList from './swaadam-options-list/swaadam-options-list';
+import SwaadamOption from './swaadam-option/swaadam-option';
 
 export {
     SwaadamStartedButton,
@@ -19,5 +22,8 @@ export {
     SwaadamLocationEntity,
     SwaadamUserAddedAddress,
     CardScheduleEntity,
-    ProfileEntity
+    ProfileEntity,
+    SwaadamDeliveryEntity,
+    SwaadamOptionsList,
+    SwaadamOption
 };
